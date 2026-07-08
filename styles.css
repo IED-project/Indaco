@@ -166,8 +166,8 @@ button {
   padding: 36px;
   background: var(--ink);
   transition:
-    transform 720ms var(--ease),
-    visibility 720ms var(--ease);
+    transform 1100ms var(--ease),
+    visibility 1100ms var(--ease);
 }
 
 .preloader.is-done {
@@ -175,16 +175,38 @@ button {
   visibility: hidden;
 }
 
+.preloader.is-done .preloader__row {
+  transform: translateY(-6%);
+  opacity: 0;
+  transition:
+    transform 1100ms var(--ease),
+    opacity 640ms var(--ease);
+}
+
+.preloader__mask {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .preloader__row {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 24px;
   width: 100%;
+  max-width: 500px;
+}
+
+.preloader__mark {
+  width: 190px;
 }
 
 .preloader__count {
   color: var(--indaco-soft);
-  font-size: clamp(5rem, 14vw, 11rem);
+  font-size: 5rem;
   line-height: 0.9;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -194,7 +216,19 @@ button {
   content: "%";
   font-size: 0.28em;
   margin-left: 4px;
-  color: var(--muted);
+  color: var(--indaco-soft);
+}
+
+@keyframes preloader-rise {
+  from {
+    transform: translateY(115%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .site-header {
@@ -1492,8 +1526,12 @@ textarea:focus-visible {
     padding: 24px;
   }
 
+  .preloader__mark {
+    width: 148px;
+  }
+
   .preloader__count {
-    font-size: clamp(3.6rem, 20vw, 6.5rem);
+    font-size: 4rem;
   }
 
   .brand img {
