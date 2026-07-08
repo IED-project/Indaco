@@ -205,19 +205,21 @@ function initPreloader() {
     return;
   }
 
-  const duration = 1000;
+  const duration = 1500;
   const start = performance.now();
+  const easeOutExpo = (t) => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t));
 
   const tick = (now) => {
     const elapsed = now - start;
-    const value = Math.min(100, Math.floor((elapsed / duration) * 100));
+    const progress = easeOutExpo(Math.min(1, elapsed / duration));
+    const value = Math.min(100, Math.floor(progress * 100));
     count.textContent = String(value);
 
     if (elapsed < duration) {
       window.requestAnimationFrame(tick);
     } else {
       count.textContent = "100";
-      window.setTimeout(() => preloader.classList.add("is-done"), 180);
+      window.setTimeout(() => preloader.classList.add("is-done"), 260);
     }
   };
 
