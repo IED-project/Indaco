@@ -166,8 +166,8 @@ button {
   padding: 36px;
   background: var(--ink);
   transition:
-    transform 720ms var(--ease),
-    visibility 720ms var(--ease);
+    transform 1100ms var(--ease),
+    visibility 1100ms var(--ease);
 }
 
 .preloader.is-done {
@@ -175,22 +175,45 @@ button {
   visibility: hidden;
 }
 
+.preloader.is-done .preloader__row {
+  transform: translateY(-6%);
+  opacity: 0;
+  transition:
+    transform 1100ms var(--ease),
+    opacity 640ms var(--ease);
+}
+
+.preloader__mask {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .preloader__row {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  width: 100%;
-  max-width: 500px;
+  gap: 18px;
+  animation: preloader-rise 900ms var(--ease) 60ms both;
 }
 
 .preloader__mark {
-  width: 190px;
+  width: 84px;
+}
+
+.preloader__kicker {
+  color: var(--muted);
+  font-family: "Suisse Intl Mono", "Suisse Intl", Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 .preloader__count {
-  color: var(--indaco-soft);
-  font-size: 5rem;
+  color: var(--paper);
+  font-size: clamp(4.5rem, 16vw, 11rem);
   line-height: 0.9;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -198,9 +221,21 @@ button {
 
 .preloader__count::after {
   content: "%";
-  font-size: 1.25rem;
+  font-size: 0.28em;
   margin-left: 4px;
-  color: var(--muted);
+  color: var(--indaco-soft);
+}
+
+@keyframes preloader-rise {
+  from {
+    transform: translateY(115%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .site-header {
@@ -1499,11 +1534,11 @@ textarea:focus-visible {
   }
 
   .preloader__mark {
-    width: 148px;
+    width: 64px;
   }
 
   .preloader__count {
-    font-size: 4rem;
+    font-size: clamp(3.4rem, 22vw, 6.5rem);
   }
 
   .brand img {
