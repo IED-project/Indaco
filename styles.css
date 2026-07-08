@@ -178,19 +178,13 @@ button {
 .preloader__row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: center;
   width: 100%;
-  max-width: 500px;
-}
-
-.preloader__mark {
-  width: 190px;
 }
 
 .preloader__count {
   color: var(--indaco-soft);
-  font-size: 5rem;
+  font-size: clamp(5rem, 14vw, 11rem);
   line-height: 0.9;
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -198,7 +192,7 @@ button {
 
 .preloader__count::after {
   content: "%";
-  font-size: 1.25rem;
+  font-size: 0.28em;
   margin-left: 4px;
   color: var(--muted);
 }
@@ -1498,12 +1492,8 @@ textarea:focus-visible {
     padding: 24px;
   }
 
-  .preloader__mark {
-    width: 148px;
-  }
-
   .preloader__count {
-    font-size: 4rem;
+    font-size: clamp(3.6rem, 20vw, 6.5rem);
   }
 
   .brand img {
