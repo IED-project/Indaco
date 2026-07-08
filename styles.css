@@ -1591,7 +1591,7 @@ textarea:focus-visible {
   }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1600px) {
   .logos__track {
     flex-wrap: nowrap;
     justify-content: flex-start;
