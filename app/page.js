@@ -1,0 +1,295 @@
+import Image from "next/image";
+import Preloader from "./components/Preloader";
+import Header from "./components/Header";
+import Reveal from "./components/Reveal";
+import ModelViewer from "./components/ModelViewer";
+import {
+  AnimateIcon,
+  ArrowRight,
+  Sparkles,
+  Eye,
+  Box,
+  Globe,
+  Smartphone,
+  LayoutGrid,
+} from "./components/icons";
+
+const progetti = [
+  {
+    num: "01",
+    eyebrow: "BRAND IDENTITY",
+    titolo: "Un sistema visivo nato da un simbolo.",
+    testo:
+      "Logo, palette e tipografia costruiti attorno alla stella a quattro punte: un'identità pensata per durare oltre il lancio.",
+    img: "/images/render-3.png",
+  },
+  {
+    num: "02",
+    eyebrow: "3D & MOTION",
+    titolo: "Il brand diventa materia.",
+    testo:
+      "Render e materiali costruiti in Blender: vetro, dispersione e luce danno al simbolo una presenza fisica e riconoscibile.",
+    img: "/images/render-9.png",
+  },
+  {
+    num: "03",
+    eyebrow: "APPLICAZIONI",
+    titolo: "Dallo schermo alla stampa.",
+    testo:
+      "Biglietti da visita, badge e materiali fisici dove il gradiente indaco diventa la firma del brand.",
+    img: "/images/business-card-front.png",
+  },
+];
+
+const servizi = [
+  {
+    icona: Sparkles,
+    nome: "Brand identity",
+    testo:
+      "Identità visive e sistemi di marca: logo, colore, tipografia e regole d'uso pensate per durare.",
+  },
+  {
+    icona: Eye,
+    nome: "Direzione visiva",
+    testo:
+      "Una direzione estetica chiara e coerente, dalla tipografia al motion fino ai dettagli.",
+  },
+  {
+    icona: Box,
+    nome: "3D & Motion",
+    testo:
+      "Render, materiali e animazioni in Blender per dare profondità e carattere al brand.",
+  },
+  {
+    icona: Globe,
+    nome: "Web design",
+    testo:
+      "Siti curati per studi, founder e brand, espressivi e facili da navigare.",
+  },
+  {
+    icona: Smartphone,
+    nome: "Product design",
+    testo:
+      "UX e UI per prodotti digitali, dai primi flussi alle interfacce pronte per lo sviluppo.",
+  },
+  {
+    icona: LayoutGrid,
+    nome: "Design system",
+    testo:
+      "Fondamenta scalabili e componenti riutilizzabili, utili anche dopo la consegna.",
+  },
+];
+
+const numeri = [
+  { valore: "1", label: "Simbolo" },
+  { valore: "3", label: "Colori di brand" },
+  { valore: "8", label: "Pesi tipografici" },
+  { valore: "11", label: "Render 3D" },
+];
+
+const marquee = [
+  "Brand identity",
+  "3D & Motion",
+  "Direzione visiva",
+  "Web design",
+  "Product design",
+  "Design system",
+];
+
+function MarqueeRow() {
+  return (
+    <>
+      {marquee.map((m) => (
+        <span key={m}>
+          {m}
+          <svg viewBox="0 0 24 24" aria-hidden>
+            <path
+              d="M12 0c1 7 5 11 12 12-7 1-11 5-12 12-1-7-5-11-12-12C7 11 11 7 12 0Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      ))}
+    </>
+  );
+}
+
+export default function Home() {
+  return (
+    <main id="top">
+      <Preloader />
+      <Header />
+      <Reveal />
+
+      {/* Hero */}
+      <section className="hero">
+        <div className="container hero__inner">
+          <span className="hero__pill" data-reveal>
+            INDACO · PORTFOLIO 2026
+          </span>
+          <h1 data-reveal>
+            Do forma a brand,
+            <br />
+            prodotti digitali e mondi 3D.
+          </h1>
+          <p className="hero__sub" data-reveal>
+            Sono Andrea Fortuna, designer e founder di indaco. Unisco identità,
+            interfacce e 3D con chiarezza e carattere.
+          </p>
+          <div className="hero__ctas" data-reveal>
+            <AnimateIcon
+              as="a"
+              className="btn btn--big"
+              href="mailto:andrea.fortuna00@gmail.com"
+            >
+              Contattami
+              <span className="btn__icon">
+                <ArrowRight size={16} />
+              </span>
+            </AnimateIcon>
+            <a className="btn btn--big btn--ghost" href="#lavori">
+              Scopri i lavori
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Marquee */}
+      <div className="marquee" aria-hidden>
+        <div className="marquee__track">
+          <MarqueeRow />
+          <MarqueeRow />
+        </div>
+      </div>
+
+      {/* 3D stage */}
+      <section className="section container" id="simbolo">
+        <div className="section__head section__head--center" data-reveal>
+          <span className="eyebrow">IL SIMBOLO</span>
+          <h2>La stella a quattro punte, in tre dimensioni.</h2>
+          <p>
+            Ruota, avvicina, esplora: il cuore del brand indaco reso come
+            oggetto reale.
+          </p>
+        </div>
+        <div className="stage" data-reveal>
+          <ModelViewer />
+        </div>
+      </section>
+
+      {/* Progetti 01/02/03 */}
+      <section className="section container" id="lavori">
+        <div className="section__head section__head--center" data-reveal>
+          <h2>Progetti selezionati.</h2>
+          <p>
+            Il percorso del brand indaco, dall'identità al 3D fino alle
+            applicazioni fisiche.
+          </p>
+        </div>
+        {progetti.map((p, i) => (
+          <article
+            className={`split${i % 2 === 1 ? " split--flip" : ""}`}
+            key={p.num}
+            data-reveal
+          >
+            <div className="split__text">
+              <span className="eyebrow">{p.eyebrow}</span>
+              <h3>{p.titolo}</h3>
+              <p>{p.testo}</p>
+            </div>
+            <div className="split__media">
+              <span className="split__num">{p.num}</span>
+              <Image src={p.img} alt={p.titolo} width={1600} height={1200} />
+            </div>
+          </article>
+        ))}
+      </section>
+
+      {/* Servizi */}
+      <section className="section container" id="servizi">
+        <div className="section__head section__head--center" data-reveal>
+          <h2>Cosa posso fare per te.</h2>
+        </div>
+        <div className="cards">
+          {servizi.map((s) => {
+            const Icona = s.icona;
+            return (
+              <AnimateIcon as="div" className="card" key={s.nome} data-reveal>
+                <Icona size={30} className="card__icon" />
+                <h3>{s.nome}</h3>
+                <p>{s.testo}</p>
+              </AnimateIcon>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Numeri del brand */}
+      <section className="section container">
+        <div className="stats" data-reveal>
+          {numeri.map((n) => (
+            <div className="stats__cell" key={n.label}>
+              <span className="stats__value">{n.valore}</span>
+              <span className="stats__label">{n.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA finale */}
+      <section className="section container">
+        <div className="cta" data-reveal>
+          <h2>
+            Hai un progetto in mente?
+            <br />
+            Parliamone.
+          </h2>
+          <AnimateIcon
+            as="a"
+            className="btn btn--big"
+            href="mailto:andrea.fortuna00@gmail.com"
+          >
+            Contattami
+            <span className="btn__icon">
+              <ArrowRight size={16} />
+            </span>
+          </AnimateIcon>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer container" id="contatti">
+        <div className="footer__grid">
+          <div className="footer__brand">
+            <img src="/images/logo-white.svg" alt="indaco" />
+            <a href="mailto:andrea.fortuna00@gmail.com">
+              andrea.fortuna00@gmail.com
+            </a>
+          </div>
+          <div className="footer__col">
+            <span>Menu</span>
+            <a href="#lavori">Lavori</a>
+            <a href="#servizi">Servizi</a>
+            <a href="#simbolo">3D</a>
+          </div>
+          <div className="footer__col">
+            <span>Social</span>
+            <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+              Instagram
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+            <a href="https://www.behance.net" target="_blank" rel="noreferrer">
+              Behance
+            </a>
+          </div>
+        </div>
+        <div className="footer__bottom">
+          <span>Progettato e sviluppato da Andrea Fortuna · indaco®</span>
+          <span>©2026</span>
+        </div>
+      </footer>
+    </main>
+  );
+}
