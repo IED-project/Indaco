@@ -195,41 +195,35 @@ function initStaggeredMenu() {
 }
 
 function initPreloader() {
-  const loaderWrapper = document.getElementById("loader-wrapper");
-  const loaderAnimation = document.getElementById("loader-animation");
-  if (!loaderWrapper || !loaderAnimation) return;
+  const preloader = document.querySelector("[data-preloader]");
+  const count = document.querySelector("[data-count]");
+  if (!preloader || !count) return;
 
-  if (sessionStorage.getItem("loaderShown")) {
-    loaderWrapper.style.display = "none";
+  if (prefersReducedMotion) {
+    count.textContent = "100";
+    preloader.classList.add("is-done");
     return;
   }
 
-  const hideLoader = () => {
-    loaderWrapper.classList.add("hidden");
-    sessionStorage.setItem("loaderShown", "1");
+  const duration = 1500;
+  const start = performance.now();
+  const easeOutExpo = (t) => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t));
+
+  const tick = (now) => {
+    const elapsed = now - start;
+    const progress = easeOutExpo(Math.min(1, elapsed / duration));
+    const value = Math.min(100, Math.floor(progress * 100));
+    count.textContent = String(value);
+
+    if (elapsed < duration) {
+      window.requestAnimationFrame(tick);
+    } else {
+      count.textContent = "100";
+      window.setTimeout(() => preloader.classList.add("is-done"), 260);
+    }
   };
 
-  if (prefersReducedMotion || typeof lottie === "undefined") {
-    hideLoader();
-    return;
-  }
-
-  const anim = lottie.loadAnimation({
-    container: loaderAnimation,
-    renderer: "svg",
-    loop: true,
-    autoplay: true,
-    path: "public/lottie/logo-animation.json",
-  });
-
-  anim.addEventListener("data_failed", hideLoader);
-
-  window.addEventListener("load", () => {
-    anim.loop = false;
-    anim.addEventListener("complete", hideLoader);
-  });
-
-  window.setTimeout(hideLoader, 4000);
+  window.requestAnimationFrame(tick);
 }
 
 function initHeader() {
