@@ -196,34 +196,27 @@ function initStaggeredMenu() {
 
 function initPreloader() {
   const preloader = document.querySelector("[data-preloader]");
-  const count = document.querySelector("[data-count]");
-  if (!preloader || !count) return;
+  const video = document.querySelector("[data-preloader-video]");
+  if (!preloader) return;
 
-  if (prefersReducedMotion) {
-    count.textContent = "100";
-    preloader.classList.add("is-done");
+  const finish = () => preloader.classList.add("is-done");
+
+  if (prefersReducedMotion || !video) {
+    finish();
     return;
   }
 
-  const duration = 1500;
-  const start = performance.now();
-  const easeOutExpo = (t) => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t));
+  const fallback = window.setTimeout(finish, 4000);
 
-  const tick = (now) => {
-    const elapsed = now - start;
-    const progress = easeOutExpo(Math.min(1, elapsed / duration));
-    const value = Math.min(100, Math.floor(progress * 100));
-    count.textContent = String(value);
+  video.addEventListener("ended", () => {
+    window.clearTimeout(fallback);
+    window.setTimeout(finish, 260);
+  });
 
-    if (elapsed < duration) {
-      window.requestAnimationFrame(tick);
-    } else {
-      count.textContent = "100";
-      window.setTimeout(() => preloader.classList.add("is-done"), 260);
-    }
-  };
-
-  window.requestAnimationFrame(tick);
+  video.addEventListener("error", () => {
+    window.clearTimeout(fallback);
+    finish();
+  });
 }
 
 function initHeader() {

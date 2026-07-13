@@ -190,19 +190,9 @@ button {
   width: 100%;
 }
 
-.preloader__count {
-  color: var(--indaco-soft);
-  font-size: clamp(6rem, 18vw, 13rem);
-  line-height: 0.9;
-  font-weight: 400;
-  font-variant-numeric: tabular-nums;
-}
-
-.preloader__count::after {
-  content: "%";
-  font-size: 0.24em;
-  margin-left: 4px;
-  color: var(--indaco-soft);
+.preloader__video {
+  width: 50vw;
+  height: auto;
 }
 
 .site-header {
@@ -1499,10 +1489,6 @@ textarea:focus-visible {
 @media (max-width: 620px) {
   .preloader {
     padding: 24px;
-  }
-
-  .preloader__count {
-    font-size: clamp(4rem, 24vw, 7rem);
   }
 
   .brand img {
