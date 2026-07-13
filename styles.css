@@ -156,53 +156,28 @@ button {
   transform: translateY(0);
 }
 
-.preloader {
+#loader-wrapper {
   position: fixed;
   inset: 0;
-  z-index: 180;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 36px;
   background: var(--ink);
   transition:
-    transform 1100ms var(--ease),
-    visibility 1100ms var(--ease);
+    opacity 0.5s ease,
+    visibility 0.5s ease;
 }
 
-.preloader.is-done {
-  transform: translateY(-100%);
-  visibility: hidden;
-}
-
-.preloader.is-done .preloader__row {
-  transform: translateY(-6%);
+#loader-wrapper.hidden {
   opacity: 0;
-  transition:
-    transform 1100ms var(--ease),
-    opacity 640ms var(--ease);
+  visibility: hidden;
+  pointer-events: none;
 }
 
-.preloader__row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.preloader__count {
-  color: var(--indaco-soft);
-  font-size: clamp(6rem, 18vw, 13rem);
-  line-height: 0.9;
-  font-weight: 400;
-  font-variant-numeric: tabular-nums;
-}
-
-.preloader__count::after {
-  content: "%";
-  font-size: 0.24em;
-  margin-left: 4px;
-  color: var(--indaco-soft);
+#loader-animation {
+  width: 200px;
+  max-width: 50vw;
 }
 
 .site-header {
@@ -1497,12 +1472,8 @@ textarea:focus-visible {
 }
 
 @media (max-width: 620px) {
-  .preloader {
-    padding: 24px;
-  }
-
-  .preloader__count {
-    font-size: clamp(4rem, 24vw, 7rem);
+  #loader-animation {
+    width: 150px;
   }
 
   .brand img {
