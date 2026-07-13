@@ -196,34 +196,44 @@ function initStaggeredMenu() {
 
 function initPreloader() {
   const preloader = document.querySelector("[data-preloader]");
-  const count = document.querySelector("[data-count]");
-  if (!preloader || !count) return;
+  const lottieContainer = document.querySelector("[data-preloader-lottie]");
+  if (!preloader) return;
 
-  if (prefersReducedMotion) {
-    count.textContent = "100";
-    preloader.classList.add("is-done");
+  const finish = () => preloader.classList.add("is-done");
+
+  if (prefersReducedMotion || !lottieContainer || typeof lottie === "undefined") {
+    window.setTimeout(finish, prefersReducedMotion ? 0 : 900);
     return;
   }
 
-  const duration = 1500;
-  const start = performance.now();
-  const easeOutExpo = (t) => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t));
+  const fallback = window.setTimeout(finish, 4000);
 
-  const tick = (now) => {
-    const elapsed = now - start;
-    const progress = easeOutExpo(Math.min(1, elapsed / duration));
-    const value = Math.min(100, Math.floor(progress * 100));
-    count.textContent = String(value);
+  fetch("public/lottie/logo-animation.json")
+    .then((response) => response.json())
+    .then((animationData) => {
+      const anim = lottie.loadAnimation({
+        container: lottieContainer,
+        renderer: "svg",
+        loop: false,
+        autoplay: true,
+        assetsPath: "public/lottie/images/",
+        animationData,
+      });
 
-    if (elapsed < duration) {
-      window.requestAnimationFrame(tick);
-    } else {
-      count.textContent = "100";
-      window.setTimeout(() => preloader.classList.add("is-done"), 260);
-    }
-  };
+      anim.addEventListener("complete", () => {
+        window.clearTimeout(fallback);
+        window.setTimeout(finish, 260);
+      });
 
-  window.requestAnimationFrame(tick);
+      anim.addEventListener("data_failed", () => {
+        window.clearTimeout(fallback);
+        finish();
+      });
+    })
+    .catch(() => {
+      window.clearTimeout(fallback);
+      finish();
+    });
 }
 
 function initHeader() {
@@ -348,13 +358,58 @@ function duplicateTrack(selector) {
   });
 }
 
+function initLogosSlideshow() {
+  const track = document.querySelector(".logos__track");
+  if (!track) return;
+
+  const slides = Array.from(track.children);
+  if (slides.length < 2) return;
+
+  const mq = window.matchMedia("(max-width: 1600px)");
+  let index = 0;
+  let timer = null;
+
+  const show = (i) => {
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("is-active", slideIndex === i);
+    });
+  };
+
+  const next = () => {
+    index = (index + 1) % slides.length;
+    show(index);
+  };
+
+  const start = () => {
+    if (timer) return;
+    show(index);
+    if (!prefersReducedMotion) {
+      timer = window.setInterval(next, 2000);
+    }
+  };
+
+  const stop = () => {
+    if (timer) {
+      window.clearInterval(timer);
+      timer = null;
+    }
+    slides.forEach((slide) => slide.classList.remove("is-active"));
+  };
+
+  const sync = () => {
+    if (mq.matches) start();
+    else stop();
+  };
+
+  sync();
+  mq.addEventListener("change", sync);
+}
+
 initPreloader();
 initStaggeredMenu();
 initHeader();
 initReveal();
 initActiveNav();
 initContactForm();
+initLogosSlideshow();
 duplicateTrack(".gallery__track");
-if (window.matchMedia("(max-width: 1440px)").matches) {
-  duplicateTrack(".logos__track");
-}
