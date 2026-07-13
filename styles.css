@@ -190,13 +190,19 @@ button {
   width: 100%;
 }
 
-.preloader__logo {
-  width: min(70vw, 420px);
-  aspect-ratio: 16 / 9;
+.preloader__count {
+  color: var(--indaco-soft);
+  font-size: clamp(6rem, 18vw, 13rem);
+  line-height: 0.9;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
-.preloader__logo svg {
-  overflow: visible;
+.preloader__count::after {
+  content: "%";
+  font-size: 0.24em;
+  margin-left: 4px;
+  color: var(--indaco-soft);
 }
 
 .site-header {
@@ -1495,8 +1501,8 @@ textarea:focus-visible {
     padding: 24px;
   }
 
-  .preloader__logo {
-    width: min(80vw, 320px);
+  .preloader__count {
+    font-size: clamp(4rem, 24vw, 7rem);
   }
 
   .brand img {
@@ -1586,27 +1592,17 @@ textarea:focus-visible {
 
 @media (max-width: 1600px) {
   .logos__track {
-    position: relative;
-    justify-content: center;
-    height: 72px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: max-content;
+    gap: 56px;
     padding: 0 28px;
+    animation: logos-drift 18s linear infinite;
   }
+}
 
-  .logos__track img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    opacity: 0;
-    transform: translate(-50%, -50%) translateX(18px);
-    transition:
-      opacity 520ms var(--ease),
-      transform 520ms var(--ease);
-    pointer-events: none;
-  }
-
-  .logos__track img.is-active {
-    opacity: 1;
-    transform: translate(-50%, -50%) translateX(0);
-    z-index: 1;
+@keyframes logos-drift {
+  to {
+    transform: translateX(-50%);
   }
 }
