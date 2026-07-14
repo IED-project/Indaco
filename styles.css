@@ -1218,6 +1218,25 @@ model-viewer img {
   opacity: 0.85;
 }
 
+.mission__text {
+  max-width: 1180px;
+  margin: 0;
+  font-size: clamp(2.6rem, 6.6vw, 6.4rem);
+  line-height: 1.12;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-wrap: pretty;
+}
+
+.mission__word {
+  color: var(--muted-2);
+  transition: color 320ms ease;
+}
+
+.mission__word.is-lit {
+  color: var(--paper);
+}
+
 .gallery {
   overflow: hidden;
 }
