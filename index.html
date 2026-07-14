@@ -284,41 +284,6 @@
         </div>
       </section>
 
-
-      <section class="gallery section" aria-label="Galleria render" data-reveal>
-        <h2 style="text-align: center; margin-bottom: 32px;">Altri progetti</h2>
-        <div class="gallery__track">
-          <figure>
-            <img src="public/images/OFFFY-mockup.jpeg" alt="Render indaco con riflessi luminosi" loading="lazy" />
-            <figcaption class="gallery__caption">
-              <span class="gallery__caption-title">OFFFY</span>
-              <a class="gallery__caption-link" href="#" aria-label="Scopri di più su OFFFY">Scopri di più</a>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="public/images/House_of_Cocktail-NFC-large.webp" alt="Dettaglio dei materiali stampati indaco" loading="lazy" />
-            <figcaption class="gallery__caption">
-              <span class="gallery__caption-title">House of Cocktail</span>
-              <a class="gallery__caption-link" href="#" aria-label="Scopri di più su House of Cocktail">Scopri di più</a>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="public/images/Starbucks_Supreme-preview.webp" alt="Simbolo indaco su fondo scuro" loading="lazy" />
-            <figcaption class="gallery__caption">
-              <span class="gallery__caption-title">Starbucks X Supreme</span>
-              <a class="gallery__caption-link" href="#" aria-label="Scopri di più su Starbucks Supreme">Scopri di più</a>
-            </figcaption>
-          </figure>
-          <figure>
-            <img src="public/images/Relive-ADV.jpeg" alt="Render del simbolo indaco con materiale scuro" loading="lazy" />
-            <figcaption class="gallery__caption">
-              <span class="gallery__caption-title">Relive</span>
-              <a class="gallery__caption-link" href="#" aria-label="Scopri di più su Relive">Scopri di più</a>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
       <section class="contact section" id="contatti">
         <div class="container contact__grid">
           <div class="contact__copy">
@@ -389,20 +354,6 @@
         </feSpecularLighting>
         <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage" />
         <feDisplacementMap in="SourceGraphic" in2="softMap" scale="30" xChannelSelector="R" yChannelSelector="G" />
-      </filter>
-      <filter id="container-glass" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
-        <feTurbulence type="fractalNoise" baseFrequency="0.015 0.015" numOctaves="1" seed="5" result="turbulence" />
-        <feComponentTransfer in="turbulence" result="mapped">
-          <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
-          <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
-          <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
-        </feComponentTransfer>
-        <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
-        <feSpecularLighting in="softMap" surfaceScale="5" specularConstant="1" specularExponent="100" lighting-color="white" result="specLight">
-          <fePointLight x="-200" y="-200" z="300" />
-        </feSpecularLighting>
-        <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage" />
-        <feDisplacementMap in="SourceGraphic" in2="softMap" scale="50" xChannelSelector="R" yChannelSelector="G" />
       </filter>
     </svg>
   </body>

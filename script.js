@@ -382,19 +382,6 @@ function initContactForm() {
   });
 }
 
-// Aggiunge una copia aria-hidden dei figli della track subito dopo gli originali (riempimento semplice per il loop).
-function duplicateTrack(selector) {
-  const track = document.querySelector(selector);
-  if (!track) return;
-
-  Array.from(track.children).forEach((child) => {
-    const clone = child.cloneNode(true);
-    clone.setAttribute("aria-hidden", "true");
-    clone.inert = true;
-    track.appendChild(clone);
-  });
-}
-
 // Clona ogni track del marquee abbastanze volte da riempire la riga per un loop continuo.
 function initLogosMarquee() {
   const rows = document.querySelectorAll(".logos__row");
@@ -455,5 +442,4 @@ initHorizontalScroll();
 initReveal();
 initActiveNav();
 initContactForm();
-duplicateTrack(".gallery__track");
 initLogosMarquee();
