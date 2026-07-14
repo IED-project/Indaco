@@ -1054,20 +1054,53 @@ model-viewer img {
 }
 
 .logos {
+  --logos-gap: 56px;
+  --logos-duration: 40s;
   overflow: hidden;
   padding: 44px 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
+}
+
+.logos__row {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
 }
 
 .logos__track {
   display: flex;
-  flex-wrap: wrap;
+  flex-shrink: 0;
   align-items: center;
-  justify-content: space-between;
-  gap: 32px 48px;
-  width: 100%;
-  padding: 0 var(--pad);
+  gap: var(--logos-gap);
+  padding-right: var(--logos-gap);
+  animation: logos-marquee var(--logos-duration) linear infinite;
+  will-change: transform;
+}
+
+.logos__track--reverse {
+  animation-direction: reverse;
+}
+
+.logos__row:hover .logos__track {
+  animation-play-state: paused;
 }
 
 .logos__track img {
@@ -1080,6 +1113,18 @@ model-viewer img {
 
 .logos__track img:hover {
   opacity: 0.85;
+}
+
+@keyframes logos-marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logos__track {
+    animation: none;
+  }
 }
 
 .gallery {
@@ -1573,22 +1618,5 @@ textarea:focus-visible {
 
   .contact-form {
     padding: 16px;
-  }
-}
-
-@media (max-width: 1600px) {
-  .logos__track {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    width: max-content;
-    gap: 56px;
-    padding: 0 28px;
-    animation: logos-drift 18s linear infinite;
-  }
-}
-
-@keyframes logos-drift {
-  to {
-    transform: translateX(-50%);
   }
 }

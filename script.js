@@ -341,6 +341,29 @@ function duplicateTrack(selector) {
   });
 }
 
+// Clone each marquee track enough times to fill the row for a seamless loop.
+function initLogosMarquee() {
+  const rows = document.querySelectorAll(".logos__row");
+  rows.forEach((row) => {
+    const track = row.querySelector(".logos__track");
+    if (!track) return;
+
+    const rowWidth = row.getBoundingClientRect().width;
+    const trackWidth = track.getBoundingClientRect().width;
+    if (!trackWidth) return;
+
+    // Need enough copies so the content always covers the viewport as one
+    // track slides fully off (each animates translateX of its own width).
+    const copies = Math.max(2, Math.ceil((rowWidth * 2) / trackWidth));
+    for (let i = 1; i < copies; i += 1) {
+      const clone = track.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      clone.inert = true;
+      row.appendChild(clone);
+    }
+  });
+}
+
 initPreloader();
 initStaggeredMenu();
 initHeader();
@@ -348,6 +371,4 @@ initReveal();
 initActiveNav();
 initContactForm();
 duplicateTrack(".gallery__track");
-if (window.matchMedia("(max-width: 1440px)").matches) {
-  duplicateTrack(".logos__track");
-}
+initLogosMarquee();
