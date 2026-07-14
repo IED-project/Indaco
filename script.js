@@ -1,5 +1,7 @@
+// Flag condivisa: se vera, salta o abbrevia le animazioni in tutte le funzioni init qui sotto.
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// Menu off-canvas: animazione di apertura/chiusura a cascata (prelayer, pannello, link) con GSAP.
 function initStaggeredMenu() {
   const wrapper = document.querySelector("[data-staggered-menu]");
   if (!wrapper || !window.gsap) return;
@@ -194,6 +196,7 @@ function initStaggeredMenu() {
   });
 }
 
+// Video di apertura a schermo intero: parte al caricamento, poi nasconde l'overlay (con timeout di sicurezza).
 function initPreloader() {
   const preloader = document.querySelector("[data-preloader]");
   const video = document.querySelector("[data-preloader-video]");
@@ -219,6 +222,7 @@ function initPreloader() {
   });
 }
 
+// Header del sito: aggiunge uno sfondo pieno/sfocato quando la pagina viene scrollata.
 function initHeader() {
   const header = document.querySelector("[data-header]");
   if (!header) return;
@@ -231,6 +235,7 @@ function initHeader() {
   window.addEventListener("scroll", setState, { passive: true });
 }
 
+// Testo della missione: divide il testo in parole e le accende di bianco man mano che si scorre.
 function initMissionReveal() {
   const text = document.querySelector("[data-mission-text]");
   if (!text) return;
@@ -250,6 +255,8 @@ function initMissionReveal() {
     ticking = false;
     const rect = text.getBoundingClientRect();
     const viewportHeight = window.innerHeight;
+    // Il progresso va da "il testo entra vicino al fondo del viewport" (start)
+    // a "il testo si avvicina al terzo superiore" (end), coprendo l'intera altezza del blocco.
     const start = viewportHeight * 0.9;
     const end = viewportHeight * 0.35;
     const total = rect.height + (start - end);
@@ -262,6 +269,7 @@ function initMissionReveal() {
     });
   };
 
+  // Rallenta lo scroll handler con rAF: ricalcola al massimo una volta per frame.
   const onScroll = () => {
     if (ticking) return;
     ticking = true;
@@ -273,6 +281,7 @@ function initMissionReveal() {
   window.addEventListener("resize", onScroll);
 }
 
+// Fade-in generico: rivela ogni elemento [data-reveal] la prima volta che entra nel viewport.
 function initReveal() {
   const items = document.querySelectorAll("[data-reveal]");
   if (!items.length) return;
@@ -296,6 +305,7 @@ function initReveal() {
   items.forEach((item) => observer.observe(item));
 }
 
+// Evidenziazione nav: marca il link dell'header/menu della sezione attualmente visibile.
 function initActiveNav() {
   const links = Array.from(document.querySelectorAll(".site-nav a, .sm-panel-item[href^='#']"));
   if (!links.length || !("IntersectionObserver" in window)) return;
@@ -319,6 +329,7 @@ function initActiveNav() {
   targets.forEach((target) => observer.observe(target));
 }
 
+// Form di contatto: validazione lato client, poi apre un link mailto: precompilato (nessun backend).
 function initContactForm() {
   const form = document.querySelector("#contact-form");
   const status = document.querySelector("[data-form-status]");
@@ -371,6 +382,7 @@ function initContactForm() {
   });
 }
 
+// Aggiunge una copia aria-hidden dei figli della track subito dopo gli originali (riempimento semplice per il loop).
 function duplicateTrack(selector) {
   const track = document.querySelector(selector);
   if (!track) return;
@@ -383,7 +395,7 @@ function duplicateTrack(selector) {
   });
 }
 
-// Clone each marquee track enough times to fill the row for a seamless loop.
+// Clona ogni track del marquee abbastanze volte da riempire la riga per un loop continuo.
 function initLogosMarquee() {
   const rows = document.querySelectorAll(".logos__row");
   rows.forEach((row) => {
@@ -394,8 +406,8 @@ function initLogosMarquee() {
     const trackWidth = track.getBoundingClientRect().width;
     if (!trackWidth) return;
 
-    // Need enough copies so the content always covers the viewport as one
-    // track slides fully off (each animates translateX of its own width).
+    // Servono abbastanza copie perché il contenuto copra sempre il viewport mentre
+    // una track scorre completamente fuori (ognuna anima translateX della propria larghezza).
     const copies = Math.max(2, Math.ceil((rowWidth * 2) / trackWidth));
     for (let i = 1; i < copies; i += 1) {
       const clone = track.cloneNode(true);
@@ -406,6 +418,7 @@ function initLogosMarquee() {
   });
 }
 
+// Avvia tutte le funzionalità qui sopra al caricamento dello script.
 initPreloader();
 initStaggeredMenu();
 initHeader();
