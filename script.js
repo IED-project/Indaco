@@ -418,11 +418,40 @@ function initLogosMarquee() {
   });
 }
 
+// Progetti: converte lo scroll verticale della rotellina in scroll orizzontale della strip.
+function initHorizontalScroll() {
+  const wrapper = document.querySelector("[data-horizontal-scroll]");
+  if (!wrapper) return;
+
+  wrapper.addEventListener(
+    "wheel",
+    (event) => {
+      // Se il gesto è già prevalentemente orizzontale (trackpad, shift+rotellina),
+      // lascialo passare così com'è: non c'è bisogno di convertirlo.
+      if (Math.abs(event.deltaX) >= Math.abs(event.deltaY)) return;
+
+      const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+      if (maxScroll <= 0) return;
+
+      const atStart = wrapper.scrollLeft <= 0;
+      const atEnd = wrapper.scrollLeft >= maxScroll - 1;
+
+      // Ai bordi della strip, lascia proseguire lo scroll verticale della pagina.
+      if ((atStart && event.deltaY < 0) || (atEnd && event.deltaY > 0)) return;
+
+      event.preventDefault();
+      wrapper.scrollLeft += event.deltaY;
+    },
+    { passive: false }
+  );
+}
+
 // Avvia tutte le funzionalità qui sopra al caricamento dello script.
 initPreloader();
 initStaggeredMenu();
 initHeader();
 initMissionReveal();
+initHorizontalScroll();
 initReveal();
 initActiveNav();
 initContactForm();

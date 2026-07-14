@@ -940,181 +940,79 @@ model-viewer img {
   object-fit: cover;
 }
 
-.projects {
-  border-bottom: 1px solid var(--line);
+.work-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
-.project-row__inner {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(200px, 1fr) minmax(0, 2.1fr) minmax(190px, 1fr);
-  height: clamp(320px, 34vw, 470px);
-  border-top: 1px solid var(--line);
-  color: var(--paper);
-  text-decoration: none;
+.work-scroll::-webkit-scrollbar {
+  display: none;
 }
 
-.project-row__col {
-  position: relative;
+.work-scroll__track {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(20px, 3vw, 48px);
+  width: max-content;
+  padding: 8px var(--pad) 8px 0;
 }
 
-.project-row__media {
-  position: relative;
+.work-card {
+  flex: none;
+  width: clamp(180px, 26vw, 340px);
+}
+
+.work-card--lg {
+  width: clamp(300px, 46vw, 620px);
+}
+
+.work-card--md {
+  width: clamp(240px, 34vw, 460px);
+}
+
+.work-card__link {
+  display: block;
+}
+
+.work-card__media {
+  margin: 0;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
+  border-radius: 10px;
   background: var(--ink-3);
-  border-left: 1px solid var(--line);
-  border-right: 1px solid var(--line);
 }
 
-.project-row__media img {
+.work-card__media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 900ms var(--ease);
 }
 
-.project-row:hover .project-row__media img {
+.work-card__link:hover .work-card__media img {
   transform: scale(1.05);
 }
 
-/* Title + subtitle: centered vertically, rises to the top on hover */
-.project-row__head {
-  position: absolute;
-  left: 30px;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: top 520ms var(--ease), transform 520ms var(--ease);
-}
-
-.project-row:hover .project-row__head {
-  top: 30px;
-  transform: translateY(0);
-}
-
-.project-row__title {
-  margin: 0;
-  font-size: clamp(1.6rem, 2.3vw, 2.35rem);
-  line-height: 1.05;
-  font-weight: 600;
-}
-
-.project-row__subtitle {
-  margin: 8px 0 0;
-  color: var(--muted);
-  font-size: 1rem;
-}
-
-/* Arrow: centered vertically, rises to the top on hover */
-.project-row__arrow {
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--paper);
-  transition: top 520ms var(--ease), transform 520ms var(--ease);
-}
-
-.project-row:hover .project-row__arrow {
-  top: 30px;
-  transform: translateY(0);
-}
-
-/* "Vai al progetto" — revealed at bottom-left on hover */
-.project-row__cta {
-  position: absolute;
-  left: 30px;
-  bottom: 30px;
-  font-size: 1rem;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 420ms var(--ease), transform 420ms var(--ease);
-  transition-delay: 70ms;
-}
-
-.project-row:hover .project-row__cta {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Meta (Durata / Ambito) — revealed at bottom-right on hover */
-.project-row__details {
-  position: absolute;
-  right: 30px;
-  bottom: 30px;
+.work-card__caption {
   display: flex;
-  gap: 44px;
-  text-align: right;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 420ms var(--ease), transform 420ms var(--ease);
-  transition-delay: 70ms;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 14px 0 0;
+  font-family: "Suisse Intl Mono", "Suisse Intl", Arial, sans-serif;
+  font-size: 0.86rem;
 }
 
-.project-row:hover .project-row__details {
-  opacity: 1;
-  transform: translateY(0);
+.work-card__name {
+  color: var(--paper);
 }
 
-.project-row__label {
-  display: block;
-  color: var(--muted);
-  font-size: 0.8rem;
-}
-
-.project-row__value {
-  display: block;
-  margin-top: 5px;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-@media (max-width: 860px) {
-  .project-row__inner {
-    grid-template-columns: 1fr;
-    height: auto;
-    gap: 18px;
-    padding: 28px 0;
-  }
-
-  .project-row__col,
-  .project-row__head,
-  .project-row__arrow,
-  .project-row__cta,
-  .project-row__details {
-    position: static;
-    transform: none;
-    opacity: 1;
-  }
-
-  .project-row__media {
-    order: -1;
-    aspect-ratio: 16 / 10;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-  }
-
-  .project-row__arrow {
-    display: none;
-  }
-
-  .project-row__col--left {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 20px;
-  }
-
-  .project-row__cta {
-    color: var(--indaco-soft);
-    white-space: nowrap;
-  }
-
-  .project-row__details {
-    justify-content: flex-start;
-    text-align: left;
-    margin-top: 14px;
-  }
+.work-card__tag {
+  color: var(--muted-2);
+  white-space: nowrap;
 }
 
 .timeline {
