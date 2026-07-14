@@ -160,25 +160,18 @@
       </section>
 
       <section class="logos" aria-label="Loghi" data-reveal>
-        <div class="logos__track">
-          <img src="public/images/logo-white.svg" alt="indaco" />
-          <img src="public/images/Instagram_logo.webp" alt="indaco" />
-          <img src="public/images/Supreme_Logo.webp" alt="indaco" />
-          <img src="public/images/relive-logo.svg" alt="indaco" />
-          <img src="public/images/OFFFY-logo.svg" alt="indaco" />
-          <img src="public/images/Play_camp-logo.svg" alt="indaco" />
-          <img src="public/images/Samsung_logo.svg" alt="indaco" />
-          <img src="public/images/nsk-logo.svg" alt="indaco" />
-          <img src="public/images/Adobe_Corporate_logo.webp" alt="indaco" />
-          <img src="public/images/logo-white.svg" alt="indaco" aria-hidden="true" />
-          <img src="public/images/Instagram_logo.webp" alt="indaco" aria-hidden="true" />
-          <img src="public/images/Supreme_Logo.webp" alt="indaco" aria-hidden="true" />
-          <img src="public/images/relive-logo.svg" alt="indaco" aria-hidden="true" />
-          <img src="public/images/OFFFY-logo.svg" alt="indaco" aria-hidden="true" />
-          <img src="public/images/Play_camp-logo.svg" alt="indaco" aria-hidden="true" />
-          <img src="public/images/Samsung_logo.svg" alt="indaco" aria-hidden="true" />
-          <img src="public/images/nsk-logo.svg" alt="indaco" aria-hidden="true" />
-          <img src="public/images/Adobe_Corporate_logo.webp" alt="indaco" aria-hidden="true" />
+        <div class="logos__row">
+          <div class="logos__track">
+            <img src="public/images/logo-white.svg" alt="indaco" />
+            <img src="public/images/Instagram_logo.webp" alt="Instagram" />
+            <img src="public/images/Supreme_Logo.webp" alt="Supreme" />
+            <img src="public/images/relive-logo.svg" alt="Relive" />
+            <img src="public/images/OFFFY-logo.svg" alt="OFFFY" />
+            <img src="public/images/Play_camp-logo.svg" alt="Play Camp" />
+            <img src="public/images/Samsung_logo.svg" alt="Samsung" />
+            <img src="public/images/nsk-logo.svg" alt="NSK" />
+            <img src="public/images/Adobe_Corporate_logo.webp" alt="Adobe" />
+          </div>
         </div>
       </section>
 
@@ -228,72 +221,123 @@
 
       <section class="work section" id="lavori">
         <div class="container">
-          <div class="section-head">
-            <p class="kicker" data-reveal>Lavori selezionati</p>
-            <h2 data-reveal>Tre uscite dallo stesso sistema.</h2>
+          <div class="section-head section-head--split">
+            <div>
+              <p class="kicker" data-reveal>Progetti selezionati</p>
+              <h2 data-reveal>Tre uscite dallo stesso sistema.</h2>
+            </div>
+            <p class="projects__count kicker" data-reveal>3 progetti selezionati</p>
           </div>
 
-          <article class="work-item" data-reveal>
-            <div class="work-item__copy">
-              <p class="work-item__type kicker">/  UI - UX </p>
-              <h3>OFFFY</h3>
-              <p>
-                Una mobile app pensata per aiutare gli adolescenti a riconoscere e ridurre l’uso automatico dello smartphone, causato da FOMO, notifiche e scroll infinito.
-              </p>
-              <a class="button button--quiet" style="margin-top: 32px;" href="#">Scopri di più</a>
-            </div>
-            <figure class="work-item__media">
-              <img
-                src="public/images/OFFFY-mockup.jpeg"
-                width="1800"
-                height="1013"
-                alt="Applicazione del simbolo indaco su medaglioni 3D"
-                loading="lazy"
-              />
-            </figure>
-          </article>
+          <div class="projects">
+            <article class="project-row" data-reveal>
+              <a class="project-row__inner" href="#" aria-label="Vai al progetto OFFFY">
+                <div class="project-row__col project-row__col--left">
+                  <div class="project-row__head">
+                    <h3 class="project-row__title">OFFFY</h3>
+                    <p class="project-row__subtitle">Mobile app · Benessere digitale</p>
+                  </div>
+                  <span class="project-row__cta">Vai al progetto</span>
+                </div>
+                <div class="project-row__media">
+                  <img
+                    src="public/images/OFFFY-mockup.jpeg"
+                    width="1800"
+                    height="1013"
+                    alt="Applicazione del simbolo indaco su medaglioni 3D"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="project-row__col project-row__col--right">
+                  <span class="project-row__arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+                  </span>
+                  <div class="project-row__details">
+                    <div class="project-row__detail">
+                      <span class="project-row__label">Durata</span>
+                      <span class="project-row__value">3 mesi</span>
+                    </div>
+                    <div class="project-row__detail">
+                      <span class="project-row__label">Ambito</span>
+                      <span class="project-row__value">UI · UX</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
 
-          <article class="work-item work-item--reverse" data-reveal>
-            <div class="work-item__copy">
-              <p class="work-item__type kicker">/  Modellazione 3D</p>
-              <h3>Relive</h3>
-              <p>
-                Render realizzati per trasformare un segno piatto in un oggetto:
-                vetro, metallo scuro e riflessi controllati per costruire presenza.
-              </p>
-              <a class="button button--quiet" style="margin-top: 32px;" href="#">Scopri di più</a>
-            </div>
-            <figure class="work-item__media">
-              <img
-                src="public/images/modellazione-3d-mockup.jpeg"
-                width="1800"
-                height="1013"
-                alt="Render 3D del simbolo indaco con luce viola"
-                loading="lazy"
-              />
-            </figure>
-          </article>
+            <article class="project-row" data-reveal>
+              <a class="project-row__inner" href="#" aria-label="Vai al progetto Relive">
+                <div class="project-row__col project-row__col--left">
+                  <div class="project-row__head">
+                    <h3 class="project-row__title">Relive</h3>
+                    <p class="project-row__subtitle">Render & materiali</p>
+                  </div>
+                  <span class="project-row__cta">Vai al progetto</span>
+                </div>
+                <div class="project-row__media">
+                  <img
+                    src="public/images/modellazione-3d-mockup.jpeg"
+                    width="1800"
+                    height="1013"
+                    alt="Render 3D del simbolo indaco con luce viola"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="project-row__col project-row__col--right">
+                  <span class="project-row__arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+                  </span>
+                  <div class="project-row__details">
+                    <div class="project-row__detail">
+                      <span class="project-row__label">Durata</span>
+                      <span class="project-row__value">3 mesi</span>
+                    </div>
+                    <div class="project-row__detail">
+                      <span class="project-row__label">Ambito</span>
+                      <span class="project-row__value">Modellazione 3D</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
 
-          <article class="work-item" data-reveal>
-            <div class="work-item__copy">
-              <p class="work-item__type kicker">/  Brand identity</p>
-              <h3>Play Camp</h3>
-              <p>
-                Una grammatica visiva compatta: forma, colore, spaziatura e
-                asset pronti per presentazioni, sito e contenuti social.
-              </p>
-              <a class="button button--quiet" style="margin-top: 32px;" href="#">Scopri di più</a>
-            </div>
-            <figure class="work-item__media">
-              <img
-                src="public/images/Play_camp.jpg"
-                width="1800"
-                height="1000"
-                alt="Biglietto da visita indaco con logo e gradiente"
-                loading="lazy"
-              />
-            </figure>
-          </article>
+            <article class="project-row" data-reveal>
+              <a class="project-row__inner" href="#" aria-label="Vai al progetto Play Camp">
+                <div class="project-row__col project-row__col--left">
+                  <div class="project-row__head">
+                    <h3 class="project-row__title">Play Camp</h3>
+                    <p class="project-row__subtitle">Sistema visivo</p>
+                  </div>
+                  <span class="project-row__cta">Vai al progetto</span>
+                </div>
+                <div class="project-row__media">
+                  <img
+                    src="public/images/Play_camp.jpg"
+                    width="1800"
+                    height="1000"
+                    alt="Biglietto da visita indaco con logo e gradiente"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="project-row__col project-row__col--right">
+                  <span class="project-row__arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+                  </span>
+                  <div class="project-row__details">
+                    <div class="project-row__detail">
+                      <span class="project-row__label">Durata</span>
+                      <span class="project-row__value">3 mesi</span>
+                    </div>
+                    <div class="project-row__detail">
+                      <span class="project-row__label">Ambito</span>
+                      <span class="project-row__value">Brand identity</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </article>
+          </div>
         </div>
       </section>
 
