@@ -231,6 +231,48 @@ function initHeader() {
   window.addEventListener("scroll", setState, { passive: true });
 }
 
+function initMissionReveal() {
+  const text = document.querySelector("[data-mission-text]");
+  if (!text) return;
+
+  const words = text.textContent.trim().split(/\s+/);
+  text.innerHTML = words.map((word) => `<span class="mission__word">${word}</span>`).join(" ");
+  const wordEls = Array.from(text.querySelectorAll(".mission__word"));
+
+  if (prefersReducedMotion) {
+    wordEls.forEach((el) => el.classList.add("is-lit"));
+    return;
+  }
+
+  let ticking = false;
+
+  const update = () => {
+    ticking = false;
+    const rect = text.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const start = viewportHeight * 0.9;
+    const end = viewportHeight * 0.35;
+    const total = rect.height + (start - end);
+    const traveled = start - rect.top;
+    const progress = Math.min(1, Math.max(0, traveled / total));
+    const litCount = Math.round(progress * wordEls.length);
+
+    wordEls.forEach((el, index) => {
+      el.classList.toggle("is-lit", index < litCount);
+    });
+  };
+
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  };
+
+  update();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+}
+
 function initReveal() {
   const items = document.querySelectorAll("[data-reveal]");
   if (!items.length) return;
@@ -344,6 +386,7 @@ function duplicateTrack(selector) {
 initPreloader();
 initStaggeredMenu();
 initHeader();
+initMissionReveal();
 initReveal();
 initActiveNav();
 initContactForm();
