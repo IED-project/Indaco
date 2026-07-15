@@ -943,7 +943,23 @@ model-viewer img {
 /* Il wrapper alto crea la "durata" dello scroll: mentre si scorrono questi
    250vh in verticale, lo sticky interno resta fermo e traduciamo il
    progresso in translateX via JS (vedi initHorizontalScroll in script.js). */
-.work{background: var(--indaco);}
+.work {
+  background-image: linear-gradient(
+    to right bottom,
+    #9c32d0,
+    #8d30ca,
+    #7f2ec3,
+    #702bbc,
+    #6129b5,
+    #5028a8,
+    #3f269b,
+    #2e238d,
+    #191e75,
+    #06195d,
+    #001246,
+    #00052f
+  );
+}
 
    .work-wrapper {
   position: relative;
@@ -953,7 +969,7 @@ model-viewer img {
 .work-sticky {
   position: sticky;
   top: 0;
-  height: 80vh;
+  height: 100vh;
   overflow: hidden;
   display: flex;
   align-items: center;
