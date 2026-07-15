@@ -974,11 +974,11 @@ model-viewer img {
    del pin, cosi si vedono anche mentre si scorre in orizzontale. */
 .work-head {
   position: absolute;
-  top: max(96px, 8vw);
+  top: max(96px, 6vw);
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  max-width: 46ch;
+  max-width: 50%;
   text-align: center;
   pointer-events: none;
 }
@@ -988,7 +988,8 @@ model-viewer img {
 }
 
 .work-head h2 {
-  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 500;
 }
 
 .work-track {
