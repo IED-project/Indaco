@@ -2,7 +2,7 @@ import Preloader from "./components/Preloader";
 import Header from "./components/Header";
 import Reveal from "./components/Reveal";
 import ModelViewer from "./components/ModelViewer";
-import { Carousel_001 } from "@/components/ui/skiper-ui/skiper47";
+import { Skiper47 } from "@/components/ui/skiper-ui/skiper47";
 import {
   AnimateIcon,
   ArrowRight,
@@ -16,45 +16,45 @@ import {
 
 const progetti = [
   {
-    num: "01",
-    eyebrow: "UI · UX",
-    titolo: "OFFFY",
-    img: "/images/OFFFY-mockup-iphone.jpg",
+    number: "01",
+    category: "UI · UX",
+    title: "OFFFY",
+    image: "/images/OFFFY-mockup-iphone.jpg",
     alt: "Interfaccia mobile del progetto OFFFY",
   },
   {
-    num: "02",
-    eyebrow: "3D · BRAND IDENTITY",
-    titolo: "Relive",
-    img: "/images/relive-preview.jpg",
+    number: "02",
+    category: "3D · BRAND IDENTITY",
+    title: "Relive",
+    image: "/images/relive-preview.jpg",
     alt: "Visual tridimensionale del progetto Relive",
   },
   {
-    num: "03",
-    eyebrow: "BRAND IDENTITY",
-    titolo: "Play Camp",
-    img: "/images/Play_camp.jpg",
+    number: "03",
+    category: "BRAND IDENTITY",
+    title: "Play Camp",
+    image: "/images/Play_camp.jpg",
     alt: "Identità visiva del progetto Play Camp",
   },
   {
-    num: "04",
-    eyebrow: "VISUAL IDENTITY",
-    titolo: "House of Cocktail",
-    img: "/images/House_of_cocktail-banner.jpg",
+    number: "04",
+    category: "VISUAL IDENTITY",
+    title: "House of Cocktail",
+    image: "/images/House_of_cocktail-banner.jpg",
     alt: "Banner del progetto House of Cocktail",
   },
   {
-    num: "05",
-    eyebrow: "CREATIVE CONCEPT",
-    titolo: "Starbucks × Supreme",
-    img: "/images/Starbucks_Supreme-preview.webp",
+    number: "05",
+    category: "CREATIVE CONCEPT",
+    title: "Starbucks × Supreme",
+    image: "/images/Starbucks_Supreme-preview.webp",
     alt: "Concept creativo Starbucks e Supreme",
   },
   {
-    num: "06",
-    eyebrow: "3D · MOTION",
-    titolo: "Materia digitale",
-    img: "/images/modellazione-3d-mockup.jpeg",
+    number: "06",
+    category: "3D · MOTION",
+    title: "Materia digitale",
+    image: "/images/modellazione-3d-mockup.jpeg",
     alt: "Mockup di modellazione tridimensionale",
   },
 ];
@@ -206,13 +206,7 @@ export default function Home() {
           </p>
         </div>
         <div className="projects-carousel" data-reveal>
-          <Carousel_001
-            images={progetti}
-            showPagination
-            showNavigation
-            loop
-            spaceBetween={24}
-          />
+          <Skiper47 projects={progetti} />
         </div>
       </section>
 

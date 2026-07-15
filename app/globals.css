@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
@@ -232,94 +231,6 @@ ul {
   transform: translate(2px, -1px);
 }
 
-/* ---------- Aurora ---------- */
-.hero__aurora {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-}
-
-.blob--a {
-  width: 60vmax;
-  height: 60vmax;
-  left: 50%;
-  top: -30%;
-  margin-left: -30vmax;
-  background: radial-gradient(
-    circle,
-    #4a63e0 0%,
-    #7d39eb 38%,
-    rgba(9, 2, 18, 0) 70%
-  );
-  opacity: 0.55;
-  animation: drift-a 16s ease-in-out infinite alternate;
-}
-
-.blob--b {
-  width: 40vmax;
-  height: 40vmax;
-  right: -6%;
-  top: 12%;
-  background: radial-gradient(
-    circle,
-    #e0813a 0%,
-    #b04ad0 45%,
-    rgba(9, 2, 18, 0) 70%
-  );
-  mix-blend-mode: screen;
-  opacity: 0.35;
-  animation: drift-b 20s ease-in-out infinite alternate;
-}
-
-.blob--c {
-  width: 50vmax;
-  height: 50vmax;
-  left: -10%;
-  bottom: -40%;
-  background: radial-gradient(
-    circle,
-    #1b2a8f 0%,
-    #3d1a75 45%,
-    rgba(9, 2, 18, 0) 72%
-  );
-  opacity: 0.6;
-  animation: drift-c 18s ease-in-out infinite alternate;
-}
-
-@keyframes drift-a {
-  from {
-    transform: translate(-4%, 0) scale(1);
-  }
-  to {
-    transform: translate(6%, 8%) scale(1.12);
-  }
-}
-
-@keyframes drift-b {
-  from {
-    transform: translate(0, -4%) scale(1);
-  }
-  to {
-    transform: translate(-12%, 10%) scale(1.18);
-  }
-}
-
-@keyframes drift-c {
-  from {
-    transform: translate(4%, 6%) scale(1.08);
-  }
-  to {
-    transform: translate(-6%, -4%) scale(1);
-  }
-}
-
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
@@ -490,7 +401,7 @@ ul {
   object-fit: cover;
 }
 
-/* ---------- Split 01/02/03 ---------- */
+/* ---------- Carosello progetti ---------- */
 .projects-carousel {
   margin-left: calc(var(--pad) * -1);
   margin-right: calc(var(--pad) * -1);
@@ -503,65 +414,7 @@ ul {
   --swiper-navigation-size: 22px;
   padding-left: var(--pad);
   padding-right: var(--pad);
-}
-
-.split {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: clamp(28px, 5vw, 72px);
-  align-items: center;
-  padding: clamp(36px, 6vh, 64px) 0;
-}
-
-.split--flip .split__text {
-  order: 2;
-}
-
-.split--flip .split__media {
-  order: 1;
-}
-
-.split__text h3 {
-  font-size: clamp(1.5rem, 3vw, 2.4rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.12;
-}
-
-.split__text p {
-  margin-top: 16px;
-  color: var(--grigio);
-  font-size: 1.02rem;
-  max-width: 46ch;
-}
-
-.split__media {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  padding: 6px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.split__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 14px;
-  aspect-ratio: 16 / 11;
-}
-
-.split__num {
-  position: absolute;
-  top: 18px;
-  right: 22px;
-  z-index: 1;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 200;
-  color: rgba(255, 255, 255, 0.75);
-  font-variant-numeric: tabular-nums;
+  padding-bottom: 50px !important;
 }
 
 /* ---------- Card servizi ---------- */
@@ -769,20 +622,8 @@ ul {
   transition-delay: 280ms;
 }
 
-/* ---------- Hover: solo su puntatori veri ---------- */
-@media (hover: hover) and (pointer: fine) {
-  .split__media img {
-    transition: transform 0.8s var(--ease);
-  }
-
-  .split:hover .split__media img {
-    transform: scale(1.03);
-  }
-}
-
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
-  .blob,
   .marquee__track {
     animation: none;
   }
@@ -801,30 +642,12 @@ ul {
     transform: none;
     opacity: 0;
   }
-
-  .split__media img {
-    transition: none;
-  }
 }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .nav__links {
     display: none;
-  }
-
-  .split,
-  .split--flip {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .split--flip .split__text {
-    order: 1;
-  }
-
-  .split--flip .split__media {
-    order: 2;
   }
 
   .cards {
