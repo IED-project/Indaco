@@ -1,237 +1,210 @@
 <!doctype html>
 <html lang="it">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Indaco - Ui/Ux, Brand identity e 3D design</title>
-    <meta
-      name="description"
-      content="Portfolio di Andrea Fortuna, founder di indaco. Identita visive, interfacce digitali e mondi 3D per brand con una direzione chiara."
-    />
-    <meta name="theme-color" content="#0a0910" />
-    <meta property="og:title" content="Andrea Fortuna / indaco" />
-    <meta
-      property="og:description"
-      content="Brand identity, product design e 3D direction con una presenza visiva riconoscibile."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="public/images/optimized/hero-render.jpg" />
-    <link rel="icon" href="public/images/logo-o.png" />
-    <link rel="preload" href="public/fonts/SuisseIntlTrial-Regular.otf" as="font" type="font/otf" crossorigin />
-    <link rel="preload" href="public/fonts/SuisseIntlTrial-Semibold.otf" as="font" type="font/otf" crossorigin />
-    <link rel="preload" href="public/fonts/SuisseIntlMonoTrial-Regular.otf" as="font" type="font/otf" crossorigin />
-    <link rel="preload" href="public/images/optimized/hero-render.jpg" as="image" />
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="vendor/model-viewer.min.js"></script>
-    <script src="vendor/gsap.min.js"></script>
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Vai al contenuto</a>
 
-    <div class="preloader" data-preloader aria-hidden="true">
-      <div class="preloader__row">
-        <video
-          class="preloader__video"
-          data-preloader-video
-          src="public/video/Logo-animation.mp4"
-          autoplay
-          muted
-          playsinline
-        ></video>
-      </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Indaco - Ui/Ux, Brand identity e 3D design</title>
+  <meta name="description"
+    content="Portfolio di Andrea Fortuna, founder di indaco. Identita visive, interfacce digitali e mondi 3D per brand con una direzione chiara." />
+  <meta name="theme-color" content="#0a0910" />
+  <meta property="og:title" content="Andrea Fortuna / indaco" />
+  <meta property="og:description"
+    content="Brand identity, product design e 3D direction con una presenza visiva riconoscibile." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="public/images/optimized/hero-render.jpg" />
+  <link rel="icon" href="public/images/logo-o.png" />
+  <link rel="preload" href="public/fonts/SuisseIntlTrial-Regular.otf" as="font" type="font/otf" crossorigin />
+  <link rel="preload" href="public/fonts/SuisseIntlTrial-Semibold.otf" as="font" type="font/otf" crossorigin />
+  <link rel="preload" href="public/fonts/SuisseIntlMonoTrial-Regular.otf" as="font" type="font/otf" crossorigin />
+  <link rel="preload" href="public/images/optimized/hero-render.jpg" as="image" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="vendor/model-viewer.min.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Vai al contenuto</a>
+
+  <div class="preloader" data-preloader aria-hidden="true">
+    <div class="preloader__row">
+      <video class="preloader__video" data-preloader-video src="public/video/Logo-animation.mp4" autoplay muted
+        playsinline></video>
+    </div>
+  </div>
+
+  <div class="staggered-menu-wrapper fixed-wrapper" data-staggered-menu data-position="right"
+    style="--sm-accent: #7d39eb">
+    <div class="sm-prelayers" aria-hidden="true">
+      <div class="sm-prelayer" style="background: #d8ff72"></div>
+      <div class="sm-prelayer" style="background: #7d39eb"></div>
+      <div class="sm-prelayer" style="background: #b699ff"></div>
     </div>
 
-    <div
-      class="staggered-menu-wrapper fixed-wrapper"
-      data-staggered-menu
-      data-position="right"
-      style="--sm-accent: #7d39eb"
-    >
-      <div class="sm-prelayers" aria-hidden="true">
-        <div class="sm-prelayer" style="background: #d8ff72"></div>
-        <div class="sm-prelayer" style="background: #7d39eb"></div>
-        <div class="sm-prelayer" style="background: #b699ff"></div>
-      </div>
-
-      <header class="staggered-menu-header" data-header aria-label="Navigazione principale">
-        <a class="sm-logo" href="#top" aria-label="indaco home">
-          <img
-            src="public/images/logo-white.svg"
-            alt="indaco"
-            class="sm-logo-img"
-            draggable="false"
-            width="110"
-            height="24"
-          />
-        </a>
-        <button
-          class="sm-toggle"
-          type="button"
-          aria-label="Apri menu"
-          aria-expanded="false"
-          aria-controls="staggered-menu-panel"
-          data-menu-toggle
-        >
-          <span class="sm-toggle-textWrap" aria-hidden="true">
-            <span class="sm-toggle-textInner" data-menu-toggle-text>
-              <span class="sm-toggle-line">Menu</span>
-              <span class="sm-toggle-line">Chiudi</span>
-            </span>
+    <header class="staggered-menu-header" data-header aria-label="Navigazione principale">
+      <a class="sm-logo" href="#top" aria-label="indaco home">
+        <img src="public/images/logo-white.svg" alt="indaco" class="sm-logo-img" draggable="false" width="110"
+          height="24" />
+      </a>
+      <button class="sm-toggle" type="button" aria-label="Apri menu" aria-expanded="false"
+        aria-controls="staggered-menu-panel" data-menu-toggle>
+        <span class="sm-toggle-textWrap" aria-hidden="true">
+          <span class="sm-toggle-textInner" data-menu-toggle-text>
+            <span class="sm-toggle-line">Menu</span>
+            <span class="sm-toggle-line">Chiudi</span>
           </span>
-          <span class="sm-icon" aria-hidden="true" data-menu-icon>
-            <span class="sm-icon-line"></span>
-            <span class="sm-icon-line sm-icon-line-v"></span>
-          </span>
-        </button>
-      </header>
+        </span>
+        <span class="sm-icon" aria-hidden="true" data-menu-icon>
+          <span class="sm-icon-line"></span>
+          <span class="sm-icon-line sm-icon-line-v"></span>
+        </span>
+      </button>
+    </header>
 
-      <aside id="staggered-menu-panel" class="staggered-menu-panel" aria-hidden="true" data-menu-panel>
-        <div class="sm-panel-inner">
-          <ul class="sm-panel-list" role="list" data-numbering>
-            <li class="sm-panel-itemWrap">
-              <a class="sm-panel-item" href="#top" aria-label="Vai alla hero">
-                <span class="sm-panel-itemLabel">Home</span>
+    <aside id="staggered-menu-panel" class="staggered-menu-panel" aria-hidden="true" data-menu-panel>
+      <div class="sm-panel-inner">
+        <ul class="sm-panel-list" role="list" data-numbering>
+          <li class="sm-panel-itemWrap">
+            <a class="sm-panel-item" href="#top" aria-label="Vai alla hero">
+              <span class="sm-panel-itemLabel">Home</span>
+            </a>
+          </li>
+          <li class="sm-panel-itemWrap">
+            <a class="sm-panel-item" href="#lavori" aria-label="Vai ai lavori selezionati">
+              <span class="sm-panel-itemLabel">Lavori</span>
+            </a>
+          </li>
+          <li class="sm-panel-itemWrap">
+            <a class="sm-panel-item" href="#contatti" aria-label="Vai ai contatti">
+              <span class="sm-panel-itemLabel">Contatti</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sm-socials" aria-label="Link social">
+          <h3 class="sm-socials-title">Social</h3>
+          <ul class="sm-socials-list" role="list">
+            <li class="sm-socials-item">
+              <a href="https://www.instagram.com/andreafortunaa" target="_blank" rel="noopener noreferrer"
+                class="sm-socials-link">
+                Instagram
               </a>
             </li>
-            <li class="sm-panel-itemWrap">
-              <a class="sm-panel-item" href="#lavori" aria-label="Vai ai lavori selezionati">
-                <span class="sm-panel-itemLabel">Lavori</span>
+            <li class="sm-socials-item">
+              <a href="https://www.linkedin.com/in/andrea-fortuna-779b74191/" target="_blank" rel="noopener noreferrer"
+                class="sm-socials-link">
+                LinkedIn
               </a>
             </li>
-            <li class="sm-panel-itemWrap">
-              <a class="sm-panel-item" href="#contatti" aria-label="Vai ai contatti">
-                <span class="sm-panel-itemLabel">Contatti</span>
+            <li class="sm-socials-item">
+              <a href="https://www.behance.net" target="_blank" rel="noopener noreferrer" class="sm-socials-link">
+                Behance
               </a>
             </li>
           </ul>
-
-          <div class="sm-socials" aria-label="Link social">
-            <h3 class="sm-socials-title">Social</h3>
-            <ul class="sm-socials-list" role="list">
-              <li class="sm-socials-item">
-                <a href="https://www.instagram.com/andreafortunaa" target="_blank" rel="noopener noreferrer" class="sm-socials-link">
-                  Instagram
-                </a>
-              </li>
-              <li class="sm-socials-item">
-                <a href="https://www.linkedin.com/in/andrea-fortuna-779b74191/" target="_blank" rel="noopener noreferrer" class="sm-socials-link">
-                  LinkedIn
-                </a>
-              </li>
-              <li class="sm-socials-item">
-                <a href="https://www.behance.net" target="_blank" rel="noopener noreferrer" class="sm-socials-link">
-                  Behance
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
-      </aside>
-    </div>
+      </div>
+    </aside>
+  </div>
 
-    <main id="main">
-      <section class="hero" id="top">
-        <div class="container hero__inner">
-          <div class="hero__copy">
-            <p class="kicker" data-reveal>Portfolio 2026</p>
-            <h1 data-reveal>Design has a <i>new compass.</i></h1>
-            <p class="hero__lead" data-reveal>
-              Inferfacce, brand identity e modellazione 3D per brand che hanno bisogno di una
-              direzione visiva nitida, riconoscibile e pronta da usare.
-            </p>
-            <div class="hero__actions" data-reveal>
-              <a class="button button--primary" href="mailto:andrea.fortuna00@gmail.com">
-                Scrivimi
-                <svg aria-hidden="true" viewBox="0 0 24 24">
-                  <path d="M5 12h13" />
-                  <path d="m13 6 6 6-6 6" />
-                </svg>
-              </a>
-              <a class="button button--quiet" href="#lavori">Scopri i lavori</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="logos" aria-label="Loghi" data-reveal>
-        <div class="logos__row">
-          <div class="logos__track">
-            <img src="public/images/logo-white.svg" alt="indaco" />
-            <img src="public/images/Instagram_logo.webp" alt="Instagram" />
-            <img src="public/images/Supreme_Logo.webp" alt="Supreme" />
-            <img src="public/images/relive-logo.svg" alt="Relive" />
-            <img src="public/images/OFFFY-logo.svg" alt="OFFFY" />
-            <img src="public/images/Play_camp-logo.svg" alt="Play Camp" />
-            <img src="public/images/Samsung_logo.svg" alt="Samsung" />
-            <img src="public/images/nsk-logo.svg" alt="NSK" />
-            <img src="public/images/Adobe_Corporate_logo.webp" alt="Adobe" />
-          </div>
-        </div>
-      </section>
-
-      <section class="mission section" aria-label="Missione">
-        <div class="container">
-          <p class="mission__text" data-mission-text>
-            Indaco is a design practice built at the edge of AI and human judgment, offering a new
-            compass for teams drowning in generated options. With a mission to prove that
-            intuition, not automation, is what makes design mean something.
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="kicker" data-reveal>Portfolio 2026</p>
+          <h1 data-reveal>Design has a <i>new compass...</i></h1>
+          <p class="hero__lead" data-reveal>
+            Inferfacce, brand identity e modellazione 3D per brand che hanno bisogno di una
+            direzione visiva nitida, riconoscibile e pronta da usare.
           </p>
+          <div class="hero__actions" data-reveal>
+            <a class="button button--primary" href="mailto:andrea.fortuna00@gmail.com">
+              Scrivimi
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M5 12h13" />
+                <path d="m13 6 6 6-6 6" />
+              </svg>
+            </a>
+            <a class="button button--quiet" href="#lavori">Scopri i lavori</a>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="method section" id="metodo" hidden>
-        <div class="container">
-          <div class="section-head section-head--split">
-            <div>
-              <p class="kicker" data-reveal>Metodo</p>
-              <h2 data-reveal>Una sequenza corta, senza dispersione.</h2>
-            </div>
+    <section class="logos" aria-label="Loghi" data-reveal>
+      <div class="logos__row">
+        <div class="logos__track">
+          <img src="public/images/logo-white.svg" alt="indaco" />
+          <img src="public/images/Instagram_logo.webp" alt="Instagram" />
+          <img src="public/images/Supreme_Logo.webp" alt="Supreme" />
+          <img src="public/images/relive-logo.svg" alt="Relive" />
+          <img src="public/images/OFFFY-logo.svg" alt="OFFFY" />
+          <img src="public/images/Play_camp-logo.svg" alt="Play Camp" />
+          <img src="public/images/Samsung_logo.svg" alt="Samsung" />
+          <img src="public/images/nsk-logo.svg" alt="NSK" />
+          <img src="public/images/Adobe_Corporate_logo.webp" alt="Adobe" />
+        </div>
+      </div>
+    </section>
+
+    <section class="mission section" aria-label="Missione">
+      <div class="container">
+        <p class="mission__text" data-mission-text>
+          Indaco is a design practice built at the edge of AI and human judgment, offering a new
+          compass for teams drowning in generated options. With a mission to prove that
+          intuition, not automation, is what makes design mean something.
+        </p>
+      </div>
+    </section>
+
+    <section class="method section" id="metodo" hidden>
+      <div class="container">
+        <div class="section-head section-head--split">
+          <div>
+            <p class="kicker" data-reveal>Metodo</p>
+            <h2 data-reveal>Una sequenza corta, senza dispersione.</h2>
+          </div>
+        </div>
+
+        <ol class="timeline">
+          <li data-reveal>
+            <span class="kicker">01</span>
+            <h3>Direzione</h3>
+            <p>Brief, riferimenti, vincoli e una traiettoria visiva condivisa.</p>
+          </li>
+          <li data-reveal>
+            <span class="kicker">02</span>
+            <h3>Metodologia</h3>
+            <p>Componenti, regole, asset e varianti pronte per essere usate.</p>
+          </li>
+          <li data-reveal>
+            <span class="kicker">03</span>
+            <h3>Prototipo</h3>
+            <p>Prime schermate, logo route o render per testare ritmo e tono.</p>
+          </li>
+          <li data-reveal>
+            <span class="kicker">04</span>
+            <h3>Consegna</h3>
+            <p>File ordinati, note di utilizzo e una revisione finale sui dettagli.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="work section" id="lavori">
+      <div class="work-wrapper" data-horizontal-wrapper>
+        <div class="work-sticky">
+          <div class="work-head">
+            <h2 data-reveal>I miei progetti</h2>
           </div>
 
-          <ol class="timeline">
-            <li data-reveal>
-              <span class="kicker">01</span>
-              <h3>Direzione</h3>
-              <p>Brief, riferimenti, vincoli e una traiettoria visiva condivisa.</p>
-            </li>
-            <li data-reveal>
-              <span class="kicker">02</span>
-              <h3>Metodologia</h3>
-              <p>Componenti, regole, asset e varianti pronte per essere usate.</p>
-            </li>
-            <li data-reveal>
-              <span class="kicker">03</span>
-              <h3>Prototipo</h3>
-              <p>Prime schermate, logo route o render per testare ritmo e tono.</p>
-            </li>
-            <li data-reveal>
-              <span class="kicker">04</span>
-              <h3>Consegna</h3>
-              <p>File ordinati, note di utilizzo e una revisione finale sui dettagli.</p>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="work section" id="lavori">
-        <div class="work-wrapper" data-horizontal-wrapper>
-          <div class="work-sticky">
-            <div class="work-head">
-              <h2 data-reveal>I miei progetti</h2>
-            </div>
-
-            <div class="work-track" data-horizontal-track>
+          <div class="work-track" data-horizontal-track>
             <article class="work-card work-card--lg" data-reveal>
               <a class="work-card__link" href="#" aria-label="Vai al progetto OFFFY">
                 <figure class="work-card__media">
-                  <img
-                    src="public/images/OFFFY-mockup-iphone.jpg"
-                    width="1800"
-                    height="1200"
-                    alt="Applicazione del simbolo indaco su medaglioni 3D"
-                    loading="lazy"
-                  />
+                  <img src="public/images/OFFFY-mockup-iphone.jpg" width="1800" height="1200"
+                    alt="Applicazione del simbolo indaco su medaglioni 3D" loading="lazy" />
                 </figure>
               </a>
               <p class="work-card__caption">
@@ -243,13 +216,8 @@
             <article class="work-card work-card--lg" data-reveal>
               <a class="work-card__link" href="#" aria-label="Vai al progetto Relive">
                 <figure class="work-card__media">
-                  <img
-                    src="public/images/relive-preview.jpg"
-                    width="1800"
-                    height="1200"
-                    alt="Render 3D del simbolo indaco con luce viola"
-                    loading="lazy"
-                  />
+                  <img src="public/images/relive-preview.jpg" width="1800" height="1200"
+                    alt="Render 3D del simbolo indaco con luce viola" loading="lazy" />
                 </figure>
               </a>
               <p class="work-card__caption">
@@ -261,13 +229,8 @@
             <article class="work-card work-card--lg" data-reveal>
               <a class="work-card__link" href="#" aria-label="Vai al progetto Play Camp">
                 <figure class="work-card__media">
-                  <img
-                    src="public/images/Play_camp.jpg"
-                    width="1800"
-                    height="1000"
-                    alt="Biglietto da visita indaco con logo e gradiente"
-                    loading="lazy"
-                  />
+                  <img src="public/images/Play_camp.jpg" width="1800" height="1000"
+                    alt="Biglietto da visita indaco con logo e gradiente" loading="lazy" />
                 </figure>
               </a>
               <p class="work-card__caption">
@@ -311,52 +274,52 @@
                 <span class="work-card__tag">Tempor Incididunt</span>
               </p>
             </article>
-            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="contact section" id="contatti">
-        <div class="container contact__grid">
-          <div class="contact__copy">
-            <p class="kicker" data-reveal>Contatti</p>
-            <h2 data-reveal>Hai un progetto da mettere a fuoco?</h2>
-            <p data-reveal>
-              Scrivimi una nota breve: obiettivo, tempi, cosa esiste gia e dove
-              vuoi arrivare. Rispondo con i prossimi passi.
-            </p>
-            <a class="contact__email" href="mailto:andrea.fortuna00@gmail.com" data-reveal>
-              andrea.fortuna00@gmail.com
-            </a>
-          </div>
-
-          <form class="contact-form" id="contact-form" novalidate data-reveal>
-            <label>
-              Nome
-              <input name="name" type="text" autocomplete="name" required />
-            </label>
-            <label>
-              Email
-              <input name="email" type="email" autocomplete="email" required />
-            </label>
-            <label>
-              Messaggio
-              <textarea name="message" rows="5" required></textarea>
-            </label>
-            <button class="button button--primary" type="submit">
-              Invia mail 
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <path d="M5 12h13" />
-                <path d="m13 6 6 6-6 6" />
-              </svg>
-            </button>
-          </form>
+    <section class="contact section" id="contatti">
+      <div class="container contact__grid">
+        <div class="contact__copy">
+          <p class="kicker" data-reveal>Contatti</p>
+          <h2 data-reveal>Hai un progetto da mettere a fuoco?</h2>
+          <p data-reveal>
+            Scrivimi una nota breve: obiettivo, tempi, cosa esiste gia e dove
+            vuoi arrivare. Rispondo con i prossimi passi.
+          </p>
+          <a class="contact__email" href="mailto:andrea.fortuna00@gmail.com" data-reveal>
+            andrea.fortuna00@gmail.com
+          </a>
         </div>
-      </section>
-    </main>
 
-    <footer class="site-footer">
-      <div class="container">
+        <form class="contact-form" id="contact-form" novalidate data-reveal>
+          <label>
+            Nome
+            <input name="name" type="text" autocomplete="name" required />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            Messaggio
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button class="button button--primary" type="submit">
+            Invia mail
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M5 12h13" />
+              <path d="m13 6 6 6-6 6" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
       <div class="footer__grid">
         <div>
           <img src="public/images/logo-white.svg" alt="indaco" />
@@ -368,25 +331,27 @@
           <a href="#">Contatti</a>
         </nav>
       </div>
-      <p >© 2026 - Andrea Fortuna</p>
-      </div>
-    </footer>
+      <p>© 2026 - Andrea Fortuna</p>
+    </div>
+  </footer>
 
-    <svg style="position: absolute; width: 0; height: 0" aria-hidden="true" focusable="false">
-      <filter id="btn-glass" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
-        <feTurbulence type="fractalNoise" baseFrequency="0.02 0.02" numOctaves="1" seed="5" result="turbulence" />
-        <feComponentTransfer in="turbulence" result="mapped">
-          <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
-          <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
-          <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
-        </feComponentTransfer>
-        <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
-        <feSpecularLighting in="softMap" surfaceScale="5" specularConstant="1" specularExponent="100" lighting-color="white" result="specLight">
-          <fePointLight x="-200" y="-200" z="300" />
-        </feSpecularLighting>
-        <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage" />
-        <feDisplacementMap in="SourceGraphic" in2="softMap" scale="30" xChannelSelector="R" yChannelSelector="G" />
-      </filter>
-    </svg>
-  </body>
+  <svg style="position: absolute; width: 0; height: 0" aria-hidden="true" focusable="false">
+    <filter id="btn-glass" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.02" numOctaves="1" seed="5" result="turbulence" />
+      <feComponentTransfer in="turbulence" result="mapped">
+        <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+        <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+        <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
+      </feComponentTransfer>
+      <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
+      <feSpecularLighting in="softMap" surfaceScale="5" specularConstant="1" specularExponent="100"
+        lighting-color="white" result="specLight">
+        <fePointLight x="-200" y="-200" z="300" />
+      </feSpecularLighting>
+      <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage" />
+      <feDisplacementMap in="SourceGraphic" in2="softMap" scale="30" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </svg>
+</body>
+
 </html>
