@@ -390,7 +390,7 @@ button {
   z-index: 20;
   width: min(100% - var(--pad) * 2, var(--container));
   min-height: 58px;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(0);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -402,7 +402,11 @@ button {
   transition:
     background 220ms ease,
     border-color 220ms ease,
-    box-shadow 220ms ease;
+    box-shadow 220ms ease,
+    min-height 220ms var(--ease),
+    padding 220ms var(--ease),
+    transform 320ms var(--ease),
+    opacity 320ms var(--ease);
 }
 
 .staggered-menu-header > * {
@@ -418,6 +422,37 @@ button {
   -webkit-backdrop-filter: blur(18px);
 }
 
+/* Rimpicciolisce leggermente non appena si scrolla, prima di sparire del tutto. */
+.staggered-menu-header.is-scrolled {
+  min-height: 46px;
+  padding: 6px 6px 6px 16px;
+}
+
+.staggered-menu-header.is-scrolled .sm-logo-img {
+  width: 104px;
+}
+
+/* Scroll verso il basso oltre la soglia: la navbar esce dallo schermo.
+   Scrollando di nuovo verso l'alto, .is-hidden viene rimossa e riappare. */
+.staggered-menu-header.is-hidden {
+  transform: translateX(-50%) translateY(-140%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Col menu aperto la navbar torna sempre visibile e a grandezza piena. */
+.staggered-menu-wrapper[data-open] .staggered-menu-header {
+  min-height: 58px;
+  padding: 10px 10px 10px 18px;
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.staggered-menu-wrapper[data-open] .sm-logo-img {
+  width: 130px;
+}
+
 .sm-logo {
   display: flex;
   align-items: center;
@@ -429,7 +464,9 @@ button {
   width: 130px;
   height: auto;
   object-fit: contain;
-  transition: filter 220ms ease;
+  transition:
+    filter 220ms ease,
+    width 220ms var(--ease);
 }
 
 .sm-toggle {
@@ -1033,7 +1070,7 @@ model-viewer img {
 }
 
 .work-card--lg {
-  width: clamp(400px, 46vw, 1000px);
+  width: clamp(400px, 46vw, 800px);
 }
 
 .work-card--md {

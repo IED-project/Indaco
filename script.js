@@ -227,8 +227,22 @@ function initHeader() {
   const header = document.querySelector("[data-header]");
   if (!header) return;
 
+  let lastY = window.scrollY;
+  const hideThreshold = 160;
+
   const setState = () => {
-    header.classList.toggle("is-scrolled", window.scrollY > 24);
+    const y = window.scrollY;
+    header.classList.toggle("is-scrolled", y > 24);
+
+    // Scrollando in giù oltre la soglia la navbar sparisce; scrollando in su
+    // riappare subito, indipendentemente dalla posizione.
+    if (y > lastY && y > hideThreshold) {
+      header.classList.add("is-hidden");
+    } else if (y < lastY) {
+      header.classList.remove("is-hidden");
+    }
+
+    lastY = y;
   };
 
   setState();
