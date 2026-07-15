@@ -11,13 +11,22 @@ npm run dev
 
 Poi apri http://localhost:3000.
 
+## Deploy su GitHub Pages
+
+Ogni push sul branch `main` avvia il workflow GitHub Actions che genera
+l'export statico Next.js e lo pubblica su GitHub Pages.
+
+Nel repository, imposta **Settings → Pages → Build and deployment → Source**
+su **GitHub Actions**. Il sito sarà disponibile su:
+
+https://ied-project.github.io/Indaco/
+
 ## Struttura
 
 - `app/page.js` - homepage e contenuti della one-page
 - `app/globals.css` - design system, layout responsive e Tailwind CSS
 - `components/ui/skiper-ui/skiper47.jsx` - carosello dei progetti
 - `app/components/` - componenti del portfolio
-- `public/images/optimized/` - copie leggere dei render usati nella pagina
 - `public/images/` e `public/models/` - asset originali del brand
 
 ## Brand

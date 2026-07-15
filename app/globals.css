@@ -238,7 +238,7 @@ ul {
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: var(--nero) url("/images/hero-bg.jpg") center / cover no-repeat;
+  background: var(--nero) var(--hero-image) center / cover no-repeat;
 }
 
 /* leggera vignetta per la leggibilità del testo */

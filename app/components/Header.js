@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimateIcon, Mail } from "./icons";
+import { withBasePath } from "@/lib/base-path";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,7 +18,7 @@ export default function Header() {
     <header className={`nav${scrolled ? " scrolled" : ""}`}>
       <div className="nav__pill">
         <a href="#top" className="nav__brand" aria-label="indaco, home">
-          <img src="/images/logo-white.svg" alt="indaco" />
+          <img src={withBasePath("/images/logo-white.svg")} alt="indaco" />
         </a>
         <nav className="nav__links" aria-label="Navigazione principale">
           <a href="#lavori">Lavori</a>

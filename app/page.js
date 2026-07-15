@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Reveal from "./components/Reveal";
 import ModelViewer from "./components/ModelViewer";
 import { Skiper47 } from "@/components/ui/skiper-ui/skiper47";
+import { withBasePath } from "@/lib/base-path";
 import {
   AnimateIcon,
   ArrowRight,
@@ -19,42 +20,42 @@ const progetti = [
     number: "01",
     category: "UI · UX",
     title: "OFFFY",
-    image: "/images/OFFFY-mockup-iphone.jpg",
+    image: withBasePath("/images/OFFFY-mockup-iphone.jpg"),
     alt: "Interfaccia mobile del progetto OFFFY",
   },
   {
     number: "02",
     category: "3D · BRAND IDENTITY",
     title: "Relive",
-    image: "/images/relive-preview.jpg",
+    image: withBasePath("/images/relive-preview.jpg"),
     alt: "Visual tridimensionale del progetto Relive",
   },
   {
     number: "03",
     category: "BRAND IDENTITY",
     title: "Play Camp",
-    image: "/images/Play_camp.jpg",
+    image: withBasePath("/images/Play_camp.jpg"),
     alt: "Identità visiva del progetto Play Camp",
   },
   {
     number: "04",
     category: "VISUAL IDENTITY",
     title: "House of Cocktail",
-    image: "/images/House_of_cocktail-banner.jpg",
+    image: withBasePath("/images/House_of_cocktail-banner.jpg"),
     alt: "Banner del progetto House of Cocktail",
   },
   {
     number: "05",
     category: "CREATIVE CONCEPT",
     title: "Starbucks × Supreme",
-    image: "/images/Starbucks_Supreme-preview.webp",
+    image: withBasePath("/images/Starbucks_Supreme-preview.webp"),
     alt: "Concept creativo Starbucks e Supreme",
   },
   {
     number: "06",
     category: "3D · MOTION",
     title: "Materia digitale",
-    image: "/images/modellazione-3d-mockup.jpeg",
+    image: withBasePath("/images/modellazione-3d-mockup.jpeg"),
     alt: "Mockup di modellazione tridimensionale",
   },
 ];
@@ -140,7 +141,12 @@ export default function Home() {
       <Reveal />
 
       {/* Hero */}
-      <section className="hero">
+      <section
+        className="hero"
+        style={{
+          "--hero-image": `url(${withBasePath("/images/hero-bg.jpg")})`,
+        }}
+      >
         <div className="container hero__inner">
           <span className="hero__pill" data-reveal>
             INDACO · PORTFOLIO 2026
@@ -266,7 +272,7 @@ export default function Home() {
       <footer className="footer container" id="contatti">
         <div className="footer__grid">
           <div className="footer__brand">
-            <img src="/images/logo-white.svg" alt="indaco" />
+            <img src={withBasePath("/images/logo-white.svg")} alt="indaco" />
             <a href="mailto:andrea.fortuna00@gmail.com">
               andrea.fortuna00@gmail.com
             </a>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { withBasePath } from "@/lib/base-path";
 
 /*
  * Viewer 3D interattivo (glTF/GLB) basato su <model-viewer>.
@@ -17,7 +18,10 @@ export default function ModelViewer() {
   if (!ready) {
     return (
       <div className="stage__viewer">
-        <img src="/images/modellazione-3d.jpeg" alt="Simbolo indaco in 3D" />
+        <img
+          src={withBasePath("/images/modellazione-3d.jpeg")}
+          alt="Simbolo indaco in 3D"
+        />
       </div>
     );
   }
@@ -25,8 +29,8 @@ export default function ModelViewer() {
   return (
     <div className="stage__viewer">
       <model-viewer
-        src="/models/indaco.glb"
-        poster="/images/modellazione-3d.jpeg"
+        src={withBasePath("/models/indaco.glb")}
+        poster={withBasePath("/images/modellazione-3d.jpeg")}
         alt="Simbolo indaco in 3D"
         camera-controls
         auto-rotate
