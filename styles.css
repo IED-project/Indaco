@@ -943,7 +943,9 @@ model-viewer img {
 /* Il wrapper alto crea la "durata" dello scroll: mentre si scorrono questi
    250vh in verticale, lo sticky interno resta fermo e traduciamo il
    progresso in translateX via JS (vedi initHorizontalScroll in script.js). */
-.work-wrapper {
+.work{background: var(--indaco);}
+
+   .work-wrapper {
   position: relative;
   height: 250vh;
 }
