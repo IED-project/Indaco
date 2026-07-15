@@ -405,32 +405,43 @@ function initLogosMarquee() {
   });
 }
 
-// Progetti: converte lo scroll verticale della rotellina in scroll orizzontale della strip.
+// Progetti: la sezione resta pinnata (position: sticky) mentre si scrolla il wrapper alto,
+// e il progresso verticale viene tradotto in translateX della strip. Scroll nativo mai bloccato:
+// rotellina, trackpad, touch e tastiera funzionano tutti senza gestione di eventi ad hoc.
 function initHorizontalScroll() {
-  const wrapper = document.querySelector("[data-horizontal-scroll]");
-  if (!wrapper) return;
+  const wrapper = document.querySelector("[data-horizontal-wrapper]");
+  const track = document.querySelector("[data-horizontal-track]");
+  if (!wrapper || !track || prefersReducedMotion) return;
 
-  wrapper.addEventListener(
-    "wheel",
-    (event) => {
-      // Se il gesto è già prevalentemente orizzontale (trackpad, shift+rotellina),
-      // lascialo passare così com'è: non c'è bisogno di convertirlo.
-      if (Math.abs(event.deltaX) >= Math.abs(event.deltaY)) return;
+  let maxX = 0;
+  let ticking = false;
 
-      const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
-      if (maxScroll <= 0) return;
+  const measure = () => {
+    // Larghezza della strip meno un viewport = corsa massima orizzontale.
+    maxX = track.scrollWidth - window.innerWidth;
+  };
 
-      const atStart = wrapper.scrollLeft <= 0;
-      const atEnd = wrapper.scrollLeft >= maxScroll - 1;
+  const update = () => {
+    const rect = wrapper.getBoundingClientRect();
+    const total = wrapper.offsetHeight - window.innerHeight;
+    const progress = Math.min(Math.max(-rect.top / total, 0), 1);
+    track.style.transform = `translateX(${-progress * maxX}px)`;
+    ticking = false;
+  };
 
-      // Ai bordi della strip, lascia proseguire lo scroll verticale della pagina.
-      if ((atStart && event.deltaY < 0) || (atEnd && event.deltaY > 0)) return;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  };
 
-      event.preventDefault();
-      wrapper.scrollLeft += event.deltaY;
-    },
-    { passive: false }
-  );
+  measure();
+  update();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", () => {
+    measure();
+    update();
+  });
 }
 
 // Avvia tutte le funzionalità qui sopra al caricamento dello script.

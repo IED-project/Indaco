@@ -940,34 +940,56 @@ model-viewer img {
   object-fit: cover;
 }
 
-.work.section {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* Il wrapper alto crea la "durata" dello scroll: mentre si scorrono questi
+   250vh in verticale, lo sticky interno resta fermo e traduciamo il
+   progresso in translateX via JS (vedi initHorizontalScroll in script.js). */
+.work-wrapper {
+  position: relative;
+  height: 250vh;
 }
 
-.work-scroll {
-  flex: 1;
+.work-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  overflow-x: auto;
-  overflow-y: hidden;
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
 }
 
-.work-scroll::-webkit-scrollbar {
-  display: none;
-}
-
-.work-scroll__track {
+.work-track {
   display: flex;
   align-items: flex-end;
   gap: clamp(20px, 3vw, 48px);
   width: max-content;
+  will-change: transform;
   /* Bordo sinistro/destro allineato al bordo del .container, anche se la strip è full-bleed. */
   padding: 8px max(var(--pad), calc((100vw - var(--container)) / 2));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-wrapper {
+    height: auto;
+  }
+
+  .work-sticky {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+
+  .work-track {
+    flex-direction: column;
+    align-items: stretch;
+    width: auto;
+    transform: none !important;
+  }
+
+  .work-card,
+  .work-card--lg,
+  .work-card--md {
+    width: 100%;
+  }
 }
 
 .work-card {
