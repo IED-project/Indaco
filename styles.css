@@ -975,9 +975,11 @@ model-viewer img {
 .work-head {
   position: absolute;
   top: max(96px, 8vw);
-  left: max(var(--pad), calc((100vw - var(--container)) / 2));
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
   max-width: 46ch;
+  text-align: center;
   pointer-events: none;
 }
 
