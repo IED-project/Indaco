@@ -1,9 +1,8 @@
+import Image from "next/image";
 import Preloader from "./components/Preloader";
 import Header from "./components/Header";
 import Reveal from "./components/Reveal";
 import ModelViewer from "./components/ModelViewer";
-import { Skiper47 } from "@/components/ui/skiper-ui/skiper47";
-import { withBasePath } from "@/lib/base-path";
 import {
   AnimateIcon,
   ArrowRight,
@@ -17,46 +16,28 @@ import {
 
 const progetti = [
   {
-    number: "01",
-    category: "UI · UX",
-    title: "OFFFY",
-    image: withBasePath("/images/OFFFY-mockup-iphone.jpg"),
-    alt: "Interfaccia mobile del progetto OFFFY",
+    num: "01",
+    eyebrow: "BRAND IDENTITY",
+    titolo: "Un sistema visivo nato da un simbolo.",
+    testo:
+      "Logo, palette e tipografia costruiti attorno alla stella a quattro punte: un'identità pensata per durare oltre il lancio.",
+    img: "/images/render-3.png",
   },
   {
-    number: "02",
-    category: "3D · BRAND IDENTITY",
-    title: "Relive",
-    image: withBasePath("/images/relive-preview.jpg"),
-    alt: "Visual tridimensionale del progetto Relive",
+    num: "02",
+    eyebrow: "3D & MOTION",
+    titolo: "Il brand diventa materia.",
+    testo:
+      "Render e materiali costruiti in Blender: vetro, dispersione e luce danno al simbolo una presenza fisica e riconoscibile.",
+    img: "/images/render-9.png",
   },
   {
-    number: "03",
-    category: "BRAND IDENTITY",
-    title: "Play Camp",
-    image: withBasePath("/images/Play_camp.jpg"),
-    alt: "Identità visiva del progetto Play Camp",
-  },
-  {
-    number: "04",
-    category: "VISUAL IDENTITY",
-    title: "House of Cocktail",
-    image: withBasePath("/images/House_of_cocktail-banner.jpg"),
-    alt: "Banner del progetto House of Cocktail",
-  },
-  {
-    number: "05",
-    category: "CREATIVE CONCEPT",
-    title: "Starbucks × Supreme",
-    image: withBasePath("/images/Starbucks_Supreme-preview.webp"),
-    alt: "Concept creativo Starbucks e Supreme",
-  },
-  {
-    number: "06",
-    category: "3D · MOTION",
-    title: "Materia digitale",
-    image: withBasePath("/images/modellazione-3d-mockup.jpeg"),
-    alt: "Mockup di modellazione tridimensionale",
+    num: "03",
+    eyebrow: "APPLICAZIONI",
+    titolo: "Dallo schermo alla stampa.",
+    testo:
+      "Biglietti da visita, badge e materiali fisici dove il gradiente indaco diventa la firma del brand.",
+    img: "/images/business-card-front.png",
   },
 ];
 
@@ -141,12 +122,7 @@ export default function Home() {
       <Reveal />
 
       {/* Hero */}
-      <section
-        className="hero"
-        style={{
-          "--hero-image": `url(${withBasePath("/images/hero-bg.jpg")})`,
-        }}
-      >
+      <section className="hero">
         <div className="container hero__inner">
           <span className="hero__pill" data-reveal>
             INDACO · PORTFOLIO 2026
@@ -201,19 +177,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Progetti */}
+      {/* Progetti 01/02/03 */}
       <section className="section container" id="lavori">
         <div className="section__head section__head--center" data-reveal>
-          <span className="eyebrow">LAVORI SELEZIONATI</span>
           <h2>Progetti selezionati.</h2>
           <p>
-            Identità, prodotti digitali e mondi 3D. Trascina per esplorare una
-            selezione dei miei lavori.
+            Il percorso del brand indaco, dall'identità al 3D fino alle
+            applicazioni fisiche.
           </p>
         </div>
-        <div className="projects-carousel" data-reveal>
-          <Skiper47 projects={progetti} />
-        </div>
+        {progetti.map((p, i) => (
+          <article
+            className={`split${i % 2 === 1 ? " split--flip" : ""}`}
+            key={p.num}
+            data-reveal
+          >
+            <div className="split__text">
+              <span className="eyebrow">{p.eyebrow}</span>
+              <h3>{p.titolo}</h3>
+              <p>{p.testo}</p>
+            </div>
+            <div className="split__media">
+              <span className="split__num">{p.num}</span>
+              <Image src={p.img} alt={p.titolo} width={1600} height={1200} />
+            </div>
+          </article>
+        ))}
       </section>
 
       {/* Servizi */}
@@ -272,7 +261,7 @@ export default function Home() {
       <footer className="footer container" id="contatti">
         <div className="footer__grid">
           <div className="footer__brand">
-            <img src={withBasePath("/images/logo-white.svg")} alt="indaco" />
+            <img src="/images/logo-white.svg" alt="indaco" />
             <a href="mailto:andrea.fortuna00@gmail.com">
               andrea.fortuna00@gmail.com
             </a>

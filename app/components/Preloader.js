@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { withBasePath } from "@/lib/base-path";
 
 export default function Preloader() {
   const [count, setCount] = useState(0);
@@ -25,7 +24,7 @@ export default function Preloader() {
     <div className={`preloader${done ? " done" : ""}`} aria-hidden={done}>
       <img
         className="preloader__logo"
-        src={withBasePath("/images/logo-white.svg")}
+        src="/images/logo-white.svg"
         alt="indaco"
       />
       <div className="preloader__count">{count}%</div>
