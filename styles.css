@@ -1127,16 +1127,23 @@ model-viewer img {
   gap: 12px;
   margin: 14px 0 0;
   font-family: "Suisse Intl Mono", "Suisse Intl", Arial, sans-serif;
-  font-size: 0.86rem;
+  font-size: 17px;
 }
 
 .work-card__name {
-  color: var(--paper);
+    font-size: 18px;
+    color: var(--paper);
+    font-weight: 600;
 }
 
 .work-card__tag {
-  color: var(--muted-2);
-  white-space: nowrap;
+  font-size: 12px;
+    border: 1px solid white;
+    border-radius: 50px;
+    padding: 4px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    white-space: nowrap;
 }
 
 .timeline {
