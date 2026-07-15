@@ -1,7 +1,7 @@
 # indaco - Portfolio di Andrea Fortuna
 
-Sito portfolio one-page ristrutturato in **HTML, CSS e JavaScript vanilla**.
-La versione statica usa gli asset in `public/`, il font Suisse locale, `model-viewer` per il simbolo 3D e GSAP per il menu staggered e il MagicBento dei servizi.
+Sito portfolio one-page realizzato con **Next.js, React, Tailwind CSS e shadcn**.
+Usa gli asset in `public/`, il font Suisse locale, `model-viewer` per il simbolo 3D e il carosello Skiper UI per i progetti.
 
 ## Avvio
 
@@ -9,17 +9,14 @@ La versione statica usa gli asset in `public/`, il font Suisse locale, `model-vi
 npm run dev
 ```
 
-Poi apri http://localhost:4173
-
-Puoi anche aprire `index.html` direttamente, ma il server locale e' consigliato per il viewer 3D.
+Poi apri http://localhost:3000.
 
 ## Struttura
 
-- `index.html` - markup semantico della one-page
-- `styles.css` - design system, layout responsive e stati interattivi
-- `script.js` - preloader, reveal, nav attiva, pannello servizi e form mailto
-- `vendor/model-viewer.min.js` - componente 3D locale
-- `vendor/gsap.min.js` - animazioni del menu StaggeredMenu e della griglia MagicBento
+- `app/page.js` - homepage e contenuti della one-page
+- `app/globals.css` - design system, layout responsive e Tailwind CSS
+- `components/ui/skiper-ui/skiper47.jsx` - carosello dei progetti
+- `app/components/` - componenti del portfolio
 - `public/images/optimized/` - copie leggere dei render usati nella pagina
 - `public/images/` e `public/models/` - asset originali del brand
 

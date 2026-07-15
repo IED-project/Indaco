@@ -17,7 +17,7 @@ export default function ModelViewer() {
   if (!ready) {
     return (
       <div className="stage__viewer">
-        <img src="/images/render-1.png" alt="Simbolo indaco in 3D" />
+        <img src="/images/modellazione-3d.jpeg" alt="Simbolo indaco in 3D" />
       </div>
     );
   }
@@ -26,7 +26,7 @@ export default function ModelViewer() {
     <div className="stage__viewer">
       <model-viewer
         src="/models/indaco.glb"
-        poster="/images/render-1.png"
+        poster="/images/modellazione-3d.jpeg"
         alt="Simbolo indaco in 3D"
         camera-controls
         auto-rotate
